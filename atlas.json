@@ -1,0 +1,6532 @@
+{
+    "result": [
+        {
+            "optionalArguments": [
+                {
+                    "name": "SendNotifyEmail"
+                },
+                {
+                    "name": "SendNotifySMS"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "accountLockdownV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "VehicleIssue"
+                },
+                {
+                    "name": "IssueDetails"
+                }
+            ],
+            "type": "addActivationIssueToVehicleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "OrderUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CategoryUUID"
+                },
+                {
+                    "name": "Text"
+                }
+            ],
+            "type": "addBooklogForShopperQualityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "ClientUUID"
+                },
+                {
+                    "name": "ExpiresAt"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "Description"
+                },
+                {
+                    "name": "LineOfBusiness"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "IdempotentID"
+                },
+                {
+                    "name": "Currency"
+                },
+                {
+                    "name": "Amount"
+                }
+            ],
+            "type": "addClientCreditsV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "WorkflowID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserID"
+                }
+            ],
+            "type": "addContactUserV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CurrentContactTypeID"
+                },
+                {
+                    "name": "NoteMetadataStr"
+                },
+                {
+                    "name": "AttachmentStr"
+                },
+                {
+                    "name": "ContentJSON"
+                },
+                {
+                    "name": "Source"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "InternalNote"
+                }
+            ],
+            "type": "addInternalNoteV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "CountryCode"
+                },
+                {
+                    "name": "MobileNumber"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "FlowType"
+                },
+                {
+                    "name": "LeadType"
+                },
+                {
+                    "name": "UseCase"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addLeadV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "CurrentContactTypeID"
+                },
+                {
+                    "name": "AttachmentStr"
+                },
+                {
+                    "name": "IsAutoFollowup"
+                },
+                {
+                    "name": "HsmID"
+                },
+                {
+                    "name": "HsmParams"
+                },
+                {
+                    "name": "HsmFallbackSMS"
+                },
+                {
+                    "name": "SourceLocale"
+                },
+                {
+                    "name": "TargetLocale"
+                },
+                {
+                    "name": "SavedReplyVariantID"
+                },
+                {
+                    "name": "ToEmailAddress"
+                },
+                {
+                    "name": "FromEmailAddress"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addMessageV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ForceGenerate"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "ConversationID"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "addOnDemandTranscriptV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "CardNumber"
+                },
+                {
+                    "name": "CardType"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "addOTTCardV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "DateOfBirth"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "addOTTVirtualCardV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequestUUID"
+                },
+                {
+                    "name": "PartnerUUID"
+                },
+                {
+                    "name": "Amount"
+                },
+                {
+                    "name": "Currency"
+                },
+                {
+                    "name": "MiscGlobalType"
+                },
+                {
+                    "name": "Description"
+                }
+            ],
+            "type": "addPartnerMiscPaymentV3"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ReferenceActionID"
+                },
+                {
+                    "name": "PIIType"
+                }
+            ],
+            "type": "addPIIMaskV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "InviterUUID"
+                }
+            ],
+            "type": "addReferralV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "BoolFeedback"
+                },
+                {
+                    "name": "RawFeedback"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addReviewFeedbackV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Arguments"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "SystemNote"
+                }
+            ],
+            "type": "addSystemNoteV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "Name"
+                }
+            ],
+            "type": "addTagToVehicleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "EmailsToAdd"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addToContactEmailCCListV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "VehicleTraitUUID"
+                }
+            ],
+            "type": "addTraitToVehicleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "addTripNoteV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ActionName"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "ConversationID"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                },
+                {
+                    "name": "Transcript"
+                },
+                {
+                    "name": "IsAutoSummarizationFeatureEnabled"
+                }
+            ],
+            "type": "addTranscriptAndSummaryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "addUserNoteV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "Name"
+                }
+            ],
+            "type": "addUserTagV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "TraitUUID"
+                }
+            ],
+            "type": "addUserTraitV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PhoneNumber"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "StoreUUID"
+                },
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "Role"
+                },
+                {
+                    "name": "VerificationLevel"
+                },
+                {
+                    "name": "PreferredLanguage"
+                },
+                {
+                    "name": "Email"
+                }
+            ],
+            "type": "addValidMerchantUserToStoreV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "MakeID"
+                },
+                {
+                    "name": "ModelID"
+                },
+                {
+                    "name": "ColorInfoHex"
+                },
+                {
+                    "name": "VIN"
+                },
+                {
+                    "name": "LicensePlateValue"
+                },
+                {
+                    "name": "VehicleActivationScore"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "OwnerUUID"
+                },
+                {
+                    "name": "Make"
+                },
+                {
+                    "name": "Model"
+                },
+                {
+                    "name": "Year"
+                }
+            ],
+            "type": "addVehicleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TransactionCategory"
+                },
+                {
+                    "name": "OtherPartyUUID"
+                },
+                {
+                    "name": "AdjustOption"
+                },
+                {
+                    "name": "DriverMessage"
+                },
+                {
+                    "name": "RiderMessage"
+                },
+                {
+                    "name": "PreviousCashCollected"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "ID"
+                },
+                {
+                    "name": "Classification"
+                },
+                {
+                    "name": "AdjustmentParty"
+                },
+                {
+                    "name": "OverrideTripNote"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "CashCollected"
+                },
+                {
+                    "name": "FareCurrencyCode"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "adjustCashCollectedV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "ItemAmount"
+                },
+                {
+                    "name": "FeeAmount"
+                },
+                {
+                    "name": "TaxAmount"
+                },
+                {
+                    "name": "ShouldValidate"
+                },
+                {
+                    "name": "OverrideReason"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "FareInCents"
+                },
+                {
+                    "name": "Issues"
+                }
+            ],
+            "type": "adjustEaterMissingItemFareV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AdjustmentAmount"
+                },
+                {
+                    "name": "InternalMessage"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "AdjustmentType"
+                },
+                {
+                    "name": "AgentUUID"
+                },
+                {
+                    "name": "BookingType"
+                },
+                {
+                    "name": "BookingUUID"
+                },
+                {
+                    "name": "ExternalMessage"
+                }
+            ],
+            "type": "adjustExploreFareV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ClientMessage"
+                },
+                {
+                    "name": "DriverMessage"
+                },
+                {
+                    "name": "RushUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "TripEstimatedDistance"
+                },
+                {
+                    "name": "BypassRiskCheck"
+                },
+                {
+                    "name": "IsEats"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "UseEFPAsBaseline"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Fare"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "adjustFareV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AdjusmentRequestUUID"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "Classification"
+                },
+                {
+                    "name": "InternalMessage"
+                },
+                {
+                    "name": "ClientMessage"
+                },
+                {
+                    "name": "DriverMessage"
+                },
+                {
+                    "name": "RushUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "AdjustmentReasonID"
+                },
+                {
+                    "name": "TripEstimatedDistance"
+                },
+                {
+                    "name": "BypassRiskCheck"
+                },
+                {
+                    "name": "IsEats"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "PartyOnePartyUUID"
+                },
+                {
+                    "name": "PartyOneLabel"
+                },
+                {
+                    "name": "PartyTwoPartyUUID"
+                },
+                {
+                    "name": "PartyTwoLabel"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "ShouldValidate"
+                },
+                {
+                    "name": "OverrideReason"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Fare"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TripSource"
+                }
+            ],
+            "type": "adjustFareV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "ContactUserType"
+                },
+                {
+                    "name": "ActionUUID"
+                },
+                {
+                    "name": "PointType"
+                },
+                {
+                    "name": "ActionType"
+                },
+                {
+                    "name": "Value"
+                }
+            ],
+            "type": "adjustLoyaltyPointV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PalantirActionType"
+                },
+                {
+                    "name": "Value"
+                },
+                {
+                    "name": "IssueType"
+                },
+                {
+                    "name": "ItemIssueType"
+                },
+                {
+                    "name": "FeeValue"
+                },
+                {
+                    "name": "TaxValue"
+                },
+                {
+                    "name": "BaseValue"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "IdempotentUUID"
+                },
+                {
+                    "name": "AppeasementAmount"
+                },
+                {
+                    "name": "PromoIssueDetails"
+                },
+                {
+                    "name": "SaveResolutionOnly"
+                },
+                {
+                    "name": "OrderIssueDetails"
+                },
+                {
+                    "name": "ShouldCheckEligibility"
+                },
+                {
+                    "name": "RefundType"
+                },
+                {
+                    "name": "ExpiresAt"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "ResolutionIssues"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "EaterSelectedResolution"
+                },
+                {
+                    "name": "TransactionCategory"
+                },
+                {
+                    "name": "IsGRKGFEnabled"
+                },
+                {
+                    "name": "RolloutMode"
+                },
+                {
+                    "name": "ResolutionTokenEstimateUUID"
+                },
+                {
+                    "name": "ResolutionTokenExpiresAt"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                }
+            ],
+            "type": "applyResolutionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "DriverID"
+                },
+                {
+                    "name": "DriverMessage"
+                },
+                {
+                    "name": "ClientMessage"
+                },
+                {
+                    "name": "TripEstimatedDistance"
+                },
+                {
+                    "name": "AdjustmentReasonID"
+                },
+                {
+                    "name": "PalantirActionType"
+                },
+                {
+                    "name": "Value"
+                },
+                {
+                    "name": "IssueType"
+                },
+                {
+                    "name": "ItemIssueType"
+                },
+                {
+                    "name": "FeeValue"
+                },
+                {
+                    "name": "TaxValue"
+                },
+                {
+                    "name": "BaseValue"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "IdempotentUUID"
+                },
+                {
+                    "name": "AppeasementAmount"
+                },
+                {
+                    "name": "PromoIssueDetails"
+                },
+                {
+                    "name": "SaveResolutionOnly"
+                },
+                {
+                    "name": "OrderIssueDetails"
+                },
+                {
+                    "name": "ShouldCheckEligibility"
+                },
+                {
+                    "name": "RefundType"
+                },
+                {
+                    "name": "ExpiresAt"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "OrderCategory"
+                },
+                {
+                    "name": "TransactionCategory"
+                },
+                {
+                    "name": "ShouldValidate"
+                },
+                {
+                    "name": "OverrideReason"
+                },
+                {
+                    "name": "IsGRKGFEnabled"
+                },
+                {
+                    "name": "RolloutMode"
+                },
+                {
+                    "name": "ResolutionTokenEstimateUUID"
+                },
+                {
+                    "name": "ResolutionTokenExpiresAt"
+                },
+                {
+                    "name": "BypassRiskCheck"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                }
+            ],
+            "type": "applyResolutionV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "PromotionCode"
+                }
+            ],
+            "type": "applyPromotionByCodeV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "PromotionUUID"
+                },
+                {
+                    "name": "AllowRepeatedApplications"
+                }
+            ],
+            "type": "applyPromotionByUUIDV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Code"
+                },
+                {
+                    "name": "PromotionCodeUUID"
+                },
+                {
+                    "name": "RequestingUserUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                }
+            ],
+            "type": "applyPromotionCodeV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Reason"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                }
+            ],
+            "type": "approveFlagFareV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "InternalActionID"
+                },
+                {
+                    "name": "FlowNodeUUID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "LetterType"
+                },
+                {
+                    "name": "ThumbUpPercentage"
+                },
+                {
+                    "name": "Rating"
+                },
+                {
+                    "name": "FirstComplement"
+                },
+                {
+                    "name": "FirstComplementCount"
+                },
+                {
+                    "name": "SecondComplement"
+                },
+                {
+                    "name": "SecondComplementCount"
+                },
+                {
+                    "name": "ThirdComplement"
+                },
+                {
+                    "name": "ThirdComplementCount"
+                },
+                {
+                    "name": "AgentRemoteIdentity"
+                },
+                {
+                    "name": "Landscape"
+                },
+                {
+                    "name": "PrintMedia"
+                },
+                {
+                    "name": "Scale"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CountryCode"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "FullName"
+                },
+                {
+                    "name": "DateSent"
+                },
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "FirstTripDate"
+                },
+                {
+                    "name": "TripCount"
+                },
+                {
+                    "name": "CompletionPercentage"
+                }
+            ],
+            "type": "attachSummaryLetterV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Text"
+                },
+                {
+                    "name": "HsmID"
+                },
+                {
+                    "name": "HsmParams"
+                },
+                {
+                    "name": "HsmFallbackSMS"
+                },
+                {
+                    "name": "TargetStatus"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "autoFollowupV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PTCLinkType"
+                },
+                {
+                    "name": "PTCLinkCountryAndDurationType"
+                }
+            ],
+            "type": "awardPartnershipLinkV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Cascade"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "banClientV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Note"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeviceUUID"
+                }
+            ],
+            "type": "banDeviceV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Cascade"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "banPaymentProfileV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PriceAdjustmentReasonIds"
+                },
+                {
+                    "name": "ResolvedFulfillmentIssues"
+                },
+                {
+                    "name": "ReportedDeliveryFee"
+                },
+                {
+                    "name": "DeliveryFeeAdjustmentReasonIds"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "CardInitialized"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ReportedTotalAmount"
+                },
+                {
+                    "name": "ReportedTotalAmountCurrencyCode"
+                }
+            ],
+            "type": "callCenterAgentPaymentInitiatedV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Reason"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                }
+            ],
+            "type": "cancelEatsOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ResolutionValue"
+                },
+                {
+                    "name": "RefundPolicy"
+                },
+                {
+                    "name": "MerchantPayPolicy"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "cancelEatsOrderWithResolutionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "cancelEatsPassAutoRenewV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "cancelMembershipAutoRenewV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "CoolDownIntervalInSeconds"
+                }
+            ],
+            "type": "cancelOrphanedActionsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CourierLocationLat"
+                },
+                {
+                    "name": "CourierLocationLng"
+                },
+                {
+                    "name": "CallerUUID"
+                },
+                {
+                    "name": "Note"
+                },
+                {
+                    "name": "FeedbackTypeID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CourierUUID"
+                },
+                {
+                    "name": "DeliveryTripID"
+                }
+            ],
+            "type": "changeCourierShopperV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Notes"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "DurationInMs"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "DriverStatus"
+                }
+            ],
+            "type": "changeDriverStatusV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "StoreUUID"
+                },
+                {
+                    "name": "CityID"
+                }
+            ],
+            "type": "changeOrderStoreV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "InputUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "PartnerCountryCode"
+                },
+                {
+                    "name": "PartnerNationalNumber"
+                },
+                {
+                    "name": "PartnerEmail"
+                }
+            ],
+            "type": "changePartnerV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsVisible"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RestaurantUUID"
+                }
+            ],
+            "type": "changeRestaurantVisibilityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsFareSplitTrip"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PaymentProfileUUID"
+                }
+            ],
+            "type": "chargeRiderArrearsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "MobileNumber"
+                },
+                {
+                    "name": "MobileCountryID"
+                },
+                {
+                    "name": "MobileCountryCode"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "confirmMobileNumberV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PrepTimeSeconds"
+                },
+                {
+                    "name": "PriceAdjustmentReasonIds"
+                },
+                {
+                    "name": "IsPayAhead"
+                },
+                {
+                    "name": "FileData"
+                },
+                {
+                    "name": "OrderPlacementMode"
+                },
+                {
+                    "name": "IsBYOC"
+                },
+                {
+                    "name": "ThirdPartyETDUpdate"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "ReportedDeliveryFee"
+                },
+                {
+                    "name": "DeliveryFeeAdjustmentReasonIds"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "ResolvedFulfillmentIssues"
+                },
+                {
+                    "name": "TipAmount"
+                },
+                {
+                    "name": "PaymentProfileTokenType"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ReportedTotalAmount"
+                },
+                {
+                    "name": "ReportedTotalAmountCurrencyCode"
+                }
+            ],
+            "type": "confirmOTTOrderPlacedV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "FleetPartnerUUID"
+                }
+            ],
+            "type": "convertFleetDriverToPartnerV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "NodeID"
+                },
+                {
+                    "name": "Tier"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "Latitude"
+                },
+                {
+                    "name": "Longitude"
+                },
+                {
+                    "name": "FlowNodeID"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "WorkflowID"
+                },
+                {
+                    "name": "OrderID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "OutboundInitiatorID"
+                },
+                {
+                    "name": "Title"
+                },
+                {
+                    "name": "HideTripFromUser"
+                },
+                {
+                    "name": "CaseID"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "OriginalContactID"
+                },
+                {
+                    "name": "SendNotification"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "RequesterID"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "MessageVisibility"
+                },
+                {
+                    "name": "MessageSource"
+                },
+                {
+                    "name": "Modality"
+                }
+            ],
+            "type": "createAssociatedContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "NodeID"
+                },
+                {
+                    "name": "Tier"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "Latitude"
+                },
+                {
+                    "name": "Longitude"
+                },
+                {
+                    "name": "FlowNodeID"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "WorkflowID"
+                },
+                {
+                    "name": "OrderID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "OutboundInitiatorID"
+                },
+                {
+                    "name": "Title"
+                },
+                {
+                    "name": "HideTripFromUser"
+                },
+                {
+                    "name": "CaseID"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "OriginalContactID"
+                },
+                {
+                    "name": "SendNotification"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "RequesterID"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "Messages"
+                },
+                {
+                    "name": "Modality"
+                }
+            ],
+            "type": "CreateAssociatedContactV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "GrantUUID"
+                }
+            ],
+            "type": "createAuthorizationHoldMethodV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "RequesterpartyUUID"
+                },
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "CounterpartyUUID"
+                }
+            ],
+            "type": "createBlacklistEntryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "CaseID"
+                },
+                {
+                    "name": "ActionArgs"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DelayMS"
+                },
+                {
+                    "name": "Action"
+                }
+            ],
+            "type": "createBlissWorkflowManagerTimerV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CaseID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "Parties"
+                },
+                {
+                    "name": "CreatedBy"
+                }
+            ],
+            "type": "createCaseV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Details"
+                },
+                {
+                    "name": "Files"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "AppealUUID"
+                }
+            ],
+            "type": "createDeactivationAppealAdditionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AppealFiles"
+                },
+                {
+                    "name": "DeactivationJiraKey"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "DeactivatedAt"
+                },
+                {
+                    "name": "DeactivationCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeactivationReasonSource"
+                },
+                {
+                    "name": "DeactivationReasonUUID"
+                },
+                {
+                    "name": "DeactivationReason"
+                },
+                {
+                    "name": "AppealDetails"
+                }
+            ],
+            "type": "createDeactivationAppealV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FlowType"
+                },
+                {
+                    "name": "TerritoryID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "OwnerUUID"
+                }
+            ],
+            "type": "createDefaultVehiclesV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "InquiryUUID"
+                },
+                {
+                    "name": "JobUUID"
+                }
+            ],
+            "type": "createInquiryJobV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Description"
+                },
+                {
+                    "name": "Type"
+                },
+                {
+                    "name": "Assignee"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Summary"
+                },
+                {
+                    "name": "ProjectKey"
+                }
+            ],
+            "type": "createJiraTicketV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserInfoType"
+                },
+                {
+                    "name": "MetadataTripUUID"
+                },
+                {
+                    "name": "MetadataContextualIncidentTimeRange"
+                },
+                {
+                    "name": "MetadataBlissSupportNodeUUID"
+                },
+                {
+                    "name": "EnrollmentUUID"
+                },
+                {
+                    "name": "Type"
+                },
+                {
+                    "name": "BlissContactUUID"
+                },
+                {
+                    "name": "ObtainFullyQualifiedURL"
+                },
+                {
+                    "name": "ClientID"
+                },
+                {
+                    "name": "MediaInfos"
+                },
+                {
+                    "name": "FootageDirection"
+                },
+                {
+                    "name": "IncidentTime"
+                },
+                {
+                    "name": "Origin"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserInfoUUID"
+                },
+                {
+                    "name": "TimeIntervalStartTime"
+                },
+                {
+                    "name": "TimeIntervalEndTime"
+                }
+            ],
+            "type": "createSafetyMediaPlatformDataOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "TenantID"
+                },
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "ContactName"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "Tier"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CaseID"
+                },
+                {
+                    "name": "EmailMetaData"
+                },
+                {
+                    "name": "ActionMessage"
+                }
+            ],
+            "type": "createSideConversationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ReceiverUserUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequesterParticipantServiceType"
+                },
+                {
+                    "name": "RequesterParticipantMappedID"
+                },
+                {
+                    "name": "ParticipantServiceType"
+                },
+                {
+                    "name": "ThreadType"
+                },
+                {
+                    "name": "PhoneNumber"
+                }
+            ],
+            "type": "createSwitchboardThreadV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DataSaleOptOut"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "dataSaleOptOutV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "MembershipUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "deactivateMembershipV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserBenefitUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "deactivatePassV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ServiceType"
+                }
+            ],
+            "type": "decideIdentityRiskV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "IdentityCheckType"
+                },
+                {
+                    "name": "Token"
+                }
+            ],
+            "type": "decideVerifyIdentityRiskV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "deleteAccountV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "S3Bucket"
+                },
+                {
+                    "name": "S3File"
+                },
+                {
+                    "name": "DeletionReason"
+                }
+            ],
+            "type": "deleteAttachmentV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ProfileUUID"
+                }
+            ],
+            "type": "deleteRiderProfileV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "Name"
+                }
+            ],
+            "type": "deleteTagFromVehicleV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "VehicleTraitUUID"
+                }
+            ],
+            "type": "deleteTraitFromVehicleV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "Name"
+                }
+            ],
+            "type": "deleteUserTagV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "TraitUUID"
+                }
+            ],
+            "type": "deleteUserTraitV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                }
+            ],
+            "type": "deleteVehicleV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "detachContactUserV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "discardDraftOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsInitiate"
+                },
+                {
+                    "name": "ResetPassword"
+                },
+                {
+                    "name": "ShouldSendResetPasswordEmail"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "driverAccountTakeOverV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsInitiate"
+                },
+                {
+                    "name": "ResetPassword"
+                },
+                {
+                    "name": "ShouldSendResetPasswordEmail"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "driverAttemptedPhishingV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DummyString"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "dummyActionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "InviterUUID"
+                },
+                {
+                    "name": "CampaignUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "editReferralV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                }
+            ],
+            "type": "enableMUberAccessV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "CourierUUID"
+                }
+            ],
+            "type": "enablePlcCodeReuseV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "SupplyUUID"
+                },
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "CreatedByUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "FallbackPaymentMethod"
+                }
+            ],
+            "type": "enablePlcFallbackPaymentMethodV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ConvertToMessaging"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "endChatV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ActionParams"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "executeMediaUploadLinkPolicyV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "executePolicyV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "ActionName"
+                },
+                {
+                    "name": "ActionParams"
+                },
+                {
+                    "name": "ShouldValidate"
+                },
+                {
+                    "name": "OverrideReason"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "executeUberCashPolicyV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AdditionalParams"
+                },
+                {
+                    "name": "CreateAsync"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "OutreachID"
+                },
+                {
+                    "name": "CampaignID"
+                },
+                {
+                    "name": "UserID"
+                },
+                {
+                    "name": "IngestionReason"
+                }
+            ],
+            "type": "createSupportOutReachActionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "WaypointID"
+                },
+                {
+                    "name": "TaskIDs"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "FeedbackTypeID"
+                }
+            ],
+            "type": "failProviderWaypointTasksV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AdjustmentRequesterUUID"
+                },
+                {
+                    "name": "AdjustOrder"
+                },
+                {
+                    "name": "RestaurantAdjustment"
+                },
+                {
+                    "name": "EaterAdjustment"
+                },
+                {
+                    "name": "EaterBillingPolicy"
+                },
+                {
+                    "name": "AdjustmentUUID"
+                },
+                {
+                    "name": "AdjusterUUID"
+                },
+                {
+                    "name": "CreatedAt"
+                },
+                {
+                    "name": "AdjustmentRequesterParty"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RestaurantUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ForceEndType"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "forceEndOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AgentNotes"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Target"
+                },
+                {
+                    "name": "ContactID"
+                }
+            ],
+            "type": "forwardContactV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ActorID"
+                },
+                {
+                    "name": "AuthActionID"
+                },
+                {
+                    "name": "AuthToken"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "Source"
+                }
+            ],
+            "type": "fulfillCancelResolutionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "MembershipUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "IncentiveUUID"
+                }
+            ],
+            "type": "grantMembershipIncentiveV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "SelfStatedGender"
+                }
+            ],
+            "type": "genderCorrectionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "OtherDetailsInSummary"
+                },
+                {
+                    "name": "ReporterVehiclePhotos"
+                },
+                {
+                    "name": "OtherVehiclePhotos"
+                },
+                {
+                    "name": "FullName"
+                },
+                {
+                    "name": "AnyoneElseNeedsMedicalAttention"
+                },
+                {
+                    "name": "ExpiryInSeconds"
+                },
+                {
+                    "name": "PDFFilename"
+                },
+                {
+                    "name": "AccidentTimeFormatted"
+                },
+                {
+                    "name": "CreatedAtTimeFormatted"
+                },
+                {
+                    "name": "DamagedVehicle"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "AccidentPeriod"
+                },
+                {
+                    "name": "Location"
+                },
+                {
+                    "name": "NumberOfRiders"
+                },
+                {
+                    "name": "NeedsMedicalAttention"
+                },
+                {
+                    "name": "WhoWasInjured"
+                },
+                {
+                    "name": "HasAmbulanceCome"
+                },
+                {
+                    "name": "DamagedProperty"
+                },
+                {
+                    "name": "ReportNumber"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "VehicleImageURLs"
+                },
+                {
+                    "name": "OtherVehicleImageURLs"
+                },
+                {
+                    "name": "OtherLicenseImageURLs"
+                }
+            ],
+            "type": "generateAccidentReportV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DocumentUUID"
+                },
+                {
+                    "name": "MoreInfoHospital"
+                },
+                {
+                    "name": "GuestRiders"
+                },
+                {
+                    "name": "AdditionalDetails"
+                },
+                {
+                    "name": "AccidentImageURLs"
+                },
+                {
+                    "name": "AccidentImageTokens"
+                },
+                {
+                    "name": "FullName"
+                },
+                {
+                    "name": "ExpiryInSeconds"
+                },
+                {
+                    "name": "PDFFilename"
+                },
+                {
+                    "name": "AccidentTimeFormatted"
+                },
+                {
+                    "name": "CreatedAtTimeFormatted"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "AccidentPeriod"
+                },
+                {
+                    "name": "Location"
+                },
+                {
+                    "name": "WhoWasInjured"
+                },
+                {
+                    "name": "HasAmbulanceCome"
+                },
+                {
+                    "name": "NumberOfRiders"
+                },
+                {
+                    "name": "Locale"
+                }
+            ],
+            "type": "generateRiderAccidentReportV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Locale"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequesterUUID"
+                }
+            ],
+            "type": "getEmergencyContactsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "IncludeRecording"
+                },
+                {
+                    "name": "ConversationID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactUUID"
+                },
+                {
+                    "name": "AttemptNumber"
+                },
+                {
+                    "name": "RestaurantNumber"
+                },
+                {
+                    "name": "ContactListID"
+                },
+                {
+                    "name": "EventType"
+                }
+            ],
+            "type": "handleOTTPhoneBotEventV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactURL"
+                },
+                {
+                    "name": "ContactTitle"
+                },
+                {
+                    "name": "RequestMessage"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "handRaiseV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "ReceiverUUID"
+                },
+                {
+                    "name": "CallerUUID"
+                }
+            ],
+            "type": "initiateEatsCallV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Items"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "ShoppingCartItemUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "InternalNote"
+                }
+            ],
+            "type": "addInsertItemDetailsActionType"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "instantPayInvalidTripsWhitelistV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ProfileUUID"
+                },
+                {
+                    "name": "Period"
+                },
+                {
+                    "name": "Year"
+                },
+                {
+                    "name": "Month"
+                },
+                {
+                    "name": "Day"
+                },
+                {
+                    "name": "ClientUUID"
+                }
+            ],
+            "type": "launchTravelReportV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PartnerUUID"
+                },
+                {
+                    "name": "PaymentMethod"
+                }
+            ],
+            "type": "makeCashoutV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "MobileCountryCode"
+                },
+                {
+                    "name": "MobileNumber"
+                }
+            ],
+            "type": "makeMobileNumberAvailableV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "CallerNumber"
+                },
+                {
+                    "name": "ReceiverNumber"
+                }
+            ],
+            "type": "makeUnityCallV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CityID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CallerNumber"
+                },
+                {
+                    "name": "ReceiverNumber"
+                },
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "UseCase"
+                }
+            ],
+            "type": "makeVoiceControllerCallV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "AgentUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ItemFulfillmentIssues"
+                }
+            ],
+            "type": "markFulfillmentIssueV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PrimaryUserUUID"
+                },
+                {
+                    "name": "SecondaryUsersUUIDs"
+                }
+            ],
+            "type": "mergeDuplicateAccountsV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "PhoneNumber"
+                },
+                {
+                    "name": "CountryCode"
+                },
+                {
+                    "name": "HasOptedIn"
+                }
+            ],
+            "type": "optInToWhatsappV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "ottBotCancelOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ResolvedFulfillmentIssues"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ReportedTotalAmount"
+                },
+                {
+                    "name": "ReportedTotalAmountCurrencyCode"
+                },
+                {
+                    "name": "PrepTimeSeconds"
+                }
+            ],
+            "type": "ottBotConfirmOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "ConversationID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "AttemptNumber"
+                },
+                {
+                    "name": "RestaurantNumber"
+                },
+                {
+                    "name": "ContactListID"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "EventType"
+                }
+            ],
+            "type": "ottBotFailureV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Amount"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "Notes"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "SupplyUUID"
+                },
+                {
+                    "name": "CreatedByUUID"
+                },
+                {
+                    "name": "CheckType"
+                }
+            ],
+            "type": "overrideCardDeclinesV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "Capacity"
+                }
+            ],
+            "type": "overrideVehicleCapacityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DurationUnit"
+                },
+                {
+                    "name": "DurationValue"
+                },
+                {
+                    "name": "MembershipUUID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "pauseMembershipV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                }
+            ],
+            "type": "publishRiderCrashReport"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "VehicleMake"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "UserAction"
+                },
+                {
+                    "name": "ClientName"
+                }
+            ],
+            "type": "performUserActionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ClientName"
+                }
+            ],
+            "type": "performVehicleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "ReasonForHandoff"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ChatTypeVersion"
+                }
+            ],
+            "type": "picassoVirtualAgentBotHandoffV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ReconnectType"
+                },
+                {
+                    "name": "SupportNodeID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "reconnectChatV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AgentGroups"
+                },
+                {
+                    "name": "AgentRemoteIdentity"
+                },
+                {
+                    "name": "IsDirectAccess"
+                },
+                {
+                    "name": "SessionID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "recordActionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AgentGroups"
+                },
+                {
+                    "name": "AgentRemoteIdentity"
+                },
+                {
+                    "name": "IsDirectAccess"
+                },
+                {
+                    "name": "SessionID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "recordActionV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "ViewID"
+                },
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "recordAgentSkipV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ResolverKey"
+                },
+                {
+                    "name": "ActionUUIDList"
+                },
+                {
+                    "name": "Metadata"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "recordBulkActionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "AdjustAmountE5"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "PurchaseUUID"
+                }
+            ],
+            "type": "refundCreditsPurchaseV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Items"
+                },
+                {
+                    "name": "RefundStrategy"
+                },
+                {
+                    "name": "Issues"
+                },
+                {
+                    "name": "ShouldValidate"
+                },
+                {
+                    "name": "OverrideReason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "OrderIssueType"
+                }
+            ],
+            "type": "refundEaterV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "refundEatsPassV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TransactionCategory"
+                },
+                {
+                    "name": "LineItem"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "UpdateReason"
+                }
+            ],
+            "type": "refundFareV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "MembershipUUID"
+                },
+                {
+                    "name": "RefundAmount"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "RefundAmountType"
+                },
+                {
+                    "name": "RefundOption"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "refundMembershipV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "PassUUID"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "refundPassV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DocumentUUID"
+                },
+                {
+                    "name": "RejectReasonUUID"
+                }
+            ],
+            "type": "rejectDocumentV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "IssueUUID"
+                },
+                {
+                    "name": "Details"
+                }
+            ],
+            "type": "removeActivationIssueFromVehicleV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                },
+                {
+                    "name": "Currency"
+                },
+                {
+                    "name": "Amount"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "removeClientCreditsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AccountUUID"
+                },
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "FormattedAmount"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "AwardRef"
+                }
+            ],
+            "type": "removeClientCreditsV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "EmailsToRemove"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "removeFromContactEmailCCListV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeactivateReason"
+                }
+            ],
+            "type": "removeOTTCardV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ReferenceActionID"
+                }
+            ],
+            "type": "removePIIMaskV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "BenefitUUID"
+                }
+            ],
+            "type": "removePreferredRouteV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                }
+            ],
+            "type": "removeVehicleV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "LevUUID"
+                },
+                {
+                    "name": "UserReportedIssueTypes"
+                },
+                {
+                    "name": "CreatedAt"
+                },
+                {
+                    "name": "OrderTripStatus"
+                }
+            ],
+            "type": "reportEmobilityUserIssuesV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "ClientUUID"
+                }
+            ],
+            "type": "requestTransportationInvoicesV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsResendToAll"
+                },
+                {
+                    "name": "EmployeeUUIDs"
+                },
+                {
+                    "name": "BypassUserValidation"
+                },
+                {
+                    "name": "SendInAppInvites"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "OrganizationUUID"
+                },
+                {
+                    "name": "InvitingUserUUID"
+                }
+            ],
+            "type": "resendInvitesEmployeesV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                },
+                {
+                    "name": "TripUUID"
+                }
+            ],
+            "type": "resendReceiptV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "ReceiverUUID"
+                },
+                {
+                    "name": "CallerUUID"
+                }
+            ],
+            "type": "retroactiveVoucherApplyV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PassUUID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "revokePassV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "SupportAction"
+                },
+                {
+                    "name": "Description"
+                },
+                {
+                    "name": "SalesforceSupportEmail"
+                }
+            ],
+            "type": "salesforceEmailHandoffV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "NextBatchToken"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "saveChatV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "BusinessUUID"
+                },
+                {
+                    "name": "ScheduleUUID"
+                },
+                {
+                    "name": "RegionUUID"
+                },
+                {
+                    "name": "CreatedByUUID"
+                },
+                {
+                    "name": "GlobalMiscType"
+                },
+                {
+                    "name": "Description"
+                },
+                {
+                    "name": "Amount"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "scheduleRestaurantMiscPaymentV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "selectForVerificationV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                }
+            ],
+            "type": "selectForVerificationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "RosettaKey"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "TranslationArgs"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "DeepLinkURL"
+                }
+            ],
+            "type": "sendCustomNotificationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Purpose"
+                },
+                {
+                    "name": "OtpLength"
+                },
+                {
+                    "name": "LanguageCode"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ShouldSendMagicLink"
+                },
+                {
+                    "name": "MagicLink"
+                },
+                {
+                    "name": "DoNotRetireOTPAfterUse"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "EmailAddress"
+                }
+            ],
+            "type": "sendEmailOtpV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RequesterEmail"
+                },
+                {
+                    "name": "Params"
+                },
+                {
+                    "name": "CC"
+                },
+                {
+                    "name": "ReplyToEmail"
+                },
+                {
+                    "name": "SerializedContext"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "TrackingCategory"
+                },
+                {
+                    "name": "SerializedContextAsString"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "TemplateUUID"
+                },
+                {
+                    "name": "FromEmail"
+                }
+            ],
+            "type": "sendEmailV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Purpose"
+                },
+                {
+                    "name": "Method"
+                },
+                {
+                    "name": "LanguageCode"
+                },
+                {
+                    "name": "OtpLength"
+                },
+                {
+                    "name": "SupportAutoSMS"
+                },
+                {
+                    "name": "SupportAutoSMSOnWeb"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ForceSendOnUnsub"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Mobile"
+                },
+                {
+                    "name": "CountryCode"
+                }
+            ],
+            "type": "sendMobileOtpV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "EmailMessage"
+                },
+                {
+                    "name": "ForceSendNotification"
+                },
+                {
+                    "name": "IsNewOutboundContact"
+                },
+                {
+                    "name": "DeepLinkURL"
+                },
+                {
+                    "name": "AttachmentStr"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "sendNotificationV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "UserPhoneNumber"
+                }
+            ],
+            "type": "sendOptinSMSV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "PhoneNotificationType"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "sendPhoneCallNotificationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ExperimentName"
+                },
+                {
+                    "name": "ChannelSupported"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "HsmID"
+                },
+                {
+                    "name": "ParamsValue"
+                },
+                {
+                    "name": "ParamsName"
+                },
+                {
+                    "name": "RosettaKey"
+                },
+                {
+                    "name": "TranslatedMessage"
+                },
+                {
+                    "name": "ThreadID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "sendProactiveCommunicationsV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "sendResetPasswordLinkBySMSV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "UserPhoneNumber"
+                },
+                {
+                    "name": "Message"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "sendSmsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "MediaType"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "UserPhoneNumber"
+                },
+                {
+                    "name": "AgentUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "sendVideoSupportCallV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PaymentProfileUUID"
+                }
+            ],
+            "type": "setAmexPrimaryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "NumberOfCouriers"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "setCouriersForAnOrderV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "TripID"
+                }
+            ],
+            "type": "setEffectiveDriverV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DeviceMake"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeviceModel"
+                }
+            ],
+            "type": "setNonHWBackedMobileAllowListV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "U4bProductLabel"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "setU4BProductLabelV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Eligible"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "Role"
+                }
+            ],
+            "type": "setWomenPreferredEligibilityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Arguments"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "SnoozeType"
+                }
+            ],
+            "type": "snoozeContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "OthersInvolved"
+                },
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "VendorName"
+                },
+                {
+                    "name": "VehicleUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ReferenceNumber"
+                },
+                {
+                    "name": "FlowType"
+                },
+                {
+                    "name": "TNCPeriod"
+                },
+                {
+                    "name": "Reporter"
+                },
+                {
+                    "name": "ReportLocation"
+                },
+                {
+                    "name": "ReportDateTime"
+                }
+            ],
+            "type": "submitClaimV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DisputeStatusOverride"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "CreatorUUID"
+                },
+                {
+                    "name": "Locale"
+                }
+            ],
+            "type": "submitDispute"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "SurveyInstanceUUID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "Tag"
+                },
+                {
+                    "name": "FreeFormResponse"
+                }
+            ],
+            "type": "submitFeedbackV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ReviewerUUID"
+                },
+                {
+                    "name": "SubjectUUID"
+                },
+                {
+                    "name": "ReviewerType"
+                },
+                {
+                    "name": "SubjectType"
+                },
+                {
+                    "name": "FeedbackSubmissions"
+                },
+                {
+                    "name": "FeedbackContext"
+                }
+            ],
+            "type": "submitFeedbackV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "SurveyInstanceUUID"
+                },
+                {
+                    "name": "ReviewerUUID"
+                },
+                {
+                    "name": "ReviewerType"
+                },
+                {
+                    "name": "ResponseValue"
+                }
+            ],
+            "type": "submitFeedbackV3"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContextID"
+                },
+                {
+                    "name": "MessageUUID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "suggestAutomationV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "summarizePhoneConversationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "WorkflowID"
+                },
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "OriginalTripID"
+                },
+                {
+                    "name": "OriginalWorkflowID"
+                },
+                {
+                    "name": "OriginalOrderUUID"
+                },
+                {
+                    "name": "ShouldDetachTrip"
+                },
+                {
+                    "name": "AgentGroups"
+                },
+                {
+                    "name": "NewWorkflowID"
+                },
+                {
+                    "name": "SessionID"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "switchContactTripV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "FlowType"
+                }
+            ],
+            "type": "switchDriverFlowTypeV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "EarnerUUID"
+                },
+                {
+                    "name": "DestinationTerritoryUUID"
+                },
+                {
+                    "name": "DestinationOnboardingFlowID"
+                }
+            ],
+            "type": "switchDriverOnboardingFlowV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "SwitchPaymentActivities"
+                },
+                {
+                    "name": "DisplayNameByPaymentProfile"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "switchMultiplePaymentMethodV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "SwitchPaymentActivities"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "switchMultiplePaymentMethodV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ToPaymentProfileUseCredits"
+                },
+                {
+                    "name": "FromPaymentProfileUseCredits"
+                },
+                {
+                    "name": "ClientTransactionUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ToPaymentProfileUUID"
+                },
+                {
+                    "name": "FromPaymentProfileUUID"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "Amount"
+                }
+            ],
+            "type": "switchPaymentMethodV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ToPaymentProfileUseCredits"
+                },
+                {
+                    "name": "FromPaymentProfileUseCredits"
+                },
+                {
+                    "name": "ClientTransactionUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ToPaymentProfileUUID"
+                },
+                {
+                    "name": "FromPaymentProfileUUID"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "Amount"
+                }
+            ],
+            "type": "switchPaymentMethodV3"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ExpenseCode"
+                },
+                {
+                    "name": "ExpenseMemo"
+                },
+                {
+                    "name": "IsBusinessTrip"
+                },
+                {
+                    "name": "IsExpenseTrip"
+                },
+                {
+                    "name": "PolicyUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "PaymentProfileOwnerUUID"
+                },
+                {
+                    "name": "ProfileUUID"
+                },
+                {
+                    "name": "ProfileType"
+                },
+                {
+                    "name": "OwnerUUID"
+                },
+                {
+                    "name": "OwnerType"
+                }
+            ],
+            "type": "switchPaymentProfileV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PolicyUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "PaymentProfileOwnerUUID"
+                },
+                {
+                    "name": "ProfileUUID"
+                },
+                {
+                    "name": "ProfileType"
+                },
+                {
+                    "name": "OwnerUUID"
+                },
+                {
+                    "name": "OwnerType"
+                }
+            ],
+            "type": "switchRiderProfileV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PolicyUUID"
+                },
+                {
+                    "name": "SecondaryPaymentProfileUUID"
+                },
+                {
+                    "name": "ExpenseCode"
+                },
+                {
+                    "name": "ExpenseMemo"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "PaymentProfileOwnerUUID"
+                },
+                {
+                    "name": "ProfileUUID"
+                },
+                {
+                    "name": "ProfileType"
+                },
+                {
+                    "name": "OwnerUUID"
+                },
+                {
+                    "name": "OwnerType"
+                }
+            ],
+            "type": "switchRiderProfileV2"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "OrderID"
+                }
+            ],
+            "type": "switchToPickupV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Reason"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "transferChatV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "triggerContactAutomationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Note"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "FeedbackTypeID"
+                }
+            ],
+            "type": "unassignTransportJobV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Cascade"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ClientUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "unbanClientV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Note"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeviceUUID"
+                }
+            ],
+            "type": "unbanDeviceV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Cascade"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "Note"
+                }
+            ],
+            "type": "unbanPaymentProfileV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "unblockMinorV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "HasRequestExpired"
+                },
+                {
+                    "name": "WasIssueResolved"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "unhandRaiseV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DeviceUUID"
+                }
+            ],
+            "type": "unsetDeviceEatsNUPAppliedStatusV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UnsnoozeReason"
+                },
+                {
+                    "name": "Source"
+                },
+                {
+                    "name": "Arguments"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "unsnoozeContactV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeviceUUID"
+                }
+            ],
+            "type": "unverifyDeviceV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "SubStatus"
+                },
+                {
+                    "name": "CreatorID"
+                },
+                {
+                    "name": "CommentText"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "CaseID"
+                }
+            ],
+            "type": "updateCaseV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "HideTextInput"
+                },
+                {
+                    "name": "DisableLastWidget"
+                },
+                {
+                    "name": "Modality"
+                },
+                {
+                    "name": "IntentTimestampMs"
+                },
+                {
+                    "name": "Csat"
+                },
+                {
+                    "name": "EndChatButton"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateChannelInfoV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "CheckinStatus"
+                }
+            ],
+            "type": "updateCheckinStatusV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Compliance"
+                },
+                {
+                    "name": "DeviceID"
+                },
+                {
+                    "name": "DisclosureVersionUUID"
+                },
+                {
+                    "name": "IPAddress"
+                },
+                {
+                    "name": "Language"
+                },
+                {
+                    "name": "LocaleCopyUUID"
+                },
+                {
+                    "name": "TerritoryID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateComplianceV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AgentGroups"
+                },
+                {
+                    "name": "SessionID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "NewChatType"
+                },
+                {
+                    "name": "PreviousChatType"
+                }
+            ],
+            "type": "updateContactChatTypeV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "ReturnToQueue"
+                },
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateContactCountryLocaleV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "EmployeeID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateContactEmployeeIDV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DialogOwner"
+                },
+                {
+                    "name": "InstanceID"
+                },
+                {
+                    "name": "ShouldNull"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateContactInteractionMetadataV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "PreviousModality"
+                }
+            ],
+            "type": "updateContactModalityV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "OutboundFromEmail"
+                }
+            ],
+            "type": "updateContactOutboundFromEmailV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "SkipArchivingContactWithAgent"
+                },
+                {
+                    "name": "EventGroupID"
+                },
+                {
+                    "name": "CurrentContactTypeID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Status"
+                }
+            ],
+            "type": "updateContactStatusV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "StickyAgentRemoteIdentity"
+                }
+            ],
+            "type": "updateContactStickyAgentV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "StoreID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateContactStorefrontIDV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "EscalationReason"
+                }
+            ],
+            "type": "updateContactTierV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "SuggestionID"
+                },
+                {
+                    "name": "AgentGroups"
+                },
+                {
+                    "name": "SessionID"
+                },
+                {
+                    "name": "ValidateCTTransition"
+                },
+                {
+                    "name": "PerformTransferValidation"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateContactTypeV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "Email"
+                },
+                {
+                    "name": "RequesterName"
+                },
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "InternalStatus"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "Tier"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "CsatOutcome"
+                },
+                {
+                    "name": "UnreadByUserMessageCount"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "FieldsToNull"
+                },
+                {
+                    "name": "CountryIso2"
+                },
+                {
+                    "name": "TripID"
+                },
+                {
+                    "name": "Modality"
+                },
+                {
+                    "name": "WorkflowID"
+                },
+                {
+                    "name": "ChatThreadID"
+                },
+                {
+                    "name": "ChatConnectionStatus"
+                },
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "CaseUUID"
+                },
+                {
+                    "name": "EmailCCList"
+                },
+                {
+                    "name": "OutboundFromEmail"
+                },
+                {
+                    "name": "ThreadReferenceIDs"
+                },
+                {
+                    "name": "OrganizationID"
+                },
+                {
+                    "name": "OrganizationSupportGroupIDs"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "ChatType"
+                },
+                {
+                    "name": "ChatTypeVersion"
+                },
+                {
+                    "name": "TenantUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactUUID"
+                }
+            ],
+            "type": "updateContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "OrderUUID"
+                },
+                {
+                    "name": "InstructionUUID"
+                },
+                {
+                    "name": "StoreUUID"
+                },
+                {
+                    "name": "FareFlowUUID"
+                },
+                {
+                    "name": "FareRequestUUID"
+                },
+                {
+                    "name": "AddressLine1"
+                },
+                {
+                    "name": "FullAddress"
+                },
+                {
+                    "name": "AddressComponents"
+                },
+                {
+                    "name": "Title"
+                },
+                {
+                    "name": "Subtitle"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Latitude"
+                },
+                {
+                    "name": "Longitude"
+                },
+                {
+                    "name": "SelectedInteractionType"
+                },
+                {
+                    "name": "Provider"
+                },
+                {
+                    "name": "PlaceID"
+                }
+            ],
+            "type": "updateEatsDropOffV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Unsubscribed"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateEmailSubscriptionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "InquiryUUID"
+                },
+                {
+                    "name": "State"
+                }
+            ],
+            "type": "updateInquiryStateV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "MembershipUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "ExpiryTimeEpochMilis"
+                }
+            ],
+            "type": "updateMembershipExpiryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "State"
+                },
+                {
+                    "name": "ZipCode"
+                },
+                {
+                    "name": "CityName"
+                },
+                {
+                    "name": "Street1"
+                },
+                {
+                    "name": "Street2"
+                },
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "LanguageID"
+                },
+                {
+                    "name": "CompanyName"
+                },
+                {
+                    "name": "Nickname"
+                },
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "updateNonSensitiveUserInfoV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PartnerUUID"
+                },
+                {
+                    "name": "StepUUID"
+                },
+                {
+                    "name": "Data"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "updateOnboardingStepByUUIDV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "ExpirationTimeEpochSecs"
+                }
+            ],
+            "type": "updatePassExpiryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Unsubscribed"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "PhoneNumber"
+                }
+            ],
+            "type": "updateSMSSubscriptionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "LockSafety"
+                },
+                {
+                    "name": "LockCompliance"
+                },
+                {
+                    "name": "LockFraudPermanent"
+                },
+                {
+                    "name": "LockSafetyPermanent"
+                },
+                {
+                    "name": "LockCompliancePermanent"
+                },
+                {
+                    "name": "LockFraud"
+                },
+                {
+                    "name": "JiraID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "type": "updateStatusLocksV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RequesterParticipantServiceType"
+                },
+                {
+                    "name": "RequesterParticipantMappedID"
+                },
+                {
+                    "name": "ThreadParticipantOperationType"
+                },
+                {
+                    "name": "ParticipantServiceType"
+                },
+                {
+                    "name": "ParticipantMappedID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ThreadUUID"
+                }
+            ],
+            "type": "updateSwitchboardThreadV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Value"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ReviewerUUID"
+                },
+                {
+                    "name": "SubjectUUID"
+                },
+                {
+                    "name": "ReviewerType"
+                },
+                {
+                    "name": "SubjectType"
+                }
+            ],
+            "type": "updateTripRatingV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "updateUserDisplayNameV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "Email"
+                },
+                {
+                    "name": "MobileCountryCode"
+                },
+                {
+                    "name": "MobileNumber"
+                },
+                {
+                    "name": "State"
+                },
+                {
+                    "name": "ZipCode"
+                },
+                {
+                    "name": "CityName"
+                },
+                {
+                    "name": "Street1"
+                },
+                {
+                    "name": "Street2"
+                },
+                {
+                    "name": "CountryID"
+                },
+                {
+                    "name": "LanguageID"
+                },
+                {
+                    "name": "CompanyName"
+                },
+                {
+                    "name": "NewPassword"
+                },
+                {
+                    "name": "Nickname"
+                },
+                {
+                    "name": "MobileCountryID"
+                },
+                {
+                    "name": "ShouldConsolidateDriverMobile"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "updateUserInfoV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "PaymentEntityType"
+                }
+            ],
+            "type": "updateUserPaymentEntityTypeV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "LockType"
+                },
+                {
+                    "name": "LockAction"
+                }
+            ],
+            "type": "updateUserSafetyLockV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "VehicleActivationScore"
+                }
+            ],
+            "type": "updateVehicleActivationV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "ColorInfoHex"
+                }
+            ],
+            "type": "updateVehicleColorV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "OwnerUUID"
+                }
+            ],
+            "type": "updateVehicleDetailV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Make"
+                },
+                {
+                    "name": "Model"
+                },
+                {
+                    "name": "Trim"
+                },
+                {
+                    "name": "Style"
+                },
+                {
+                    "name": "MakeID"
+                },
+                {
+                    "name": "ModelID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "Year"
+                }
+            ],
+            "type": "updateVehicleFlavorV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "VIN"
+                },
+                {
+                    "name": "LicensePlateValue"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "VehicleUUID"
+                }
+            ],
+            "type": "updateVehicleIdentityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "NationalID"
+                },
+                {
+                    "name": "NationalIDType"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "updateNationalIdV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "NationalID"
+                },
+                {
+                    "name": "TraitUUID"
+                },
+                {
+                    "name": "TraitName"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "updateUserNationalIDTraitV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FileBody"
+                },
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "ExpirationDate"
+                },
+                {
+                    "name": "FileURL"
+                },
+                {
+                    "name": "CurrentContactTypeID"
+                },
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "EventGroupID"
+                },
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "SuggestionID"
+                },
+                {
+                    "name": "DocumentTypeNameFormatted"
+                },
+                {
+                    "name": "FileName"
+                },
+                {
+                    "name": "VehicleSummary"
+                },
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "FileType"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DocumentTypeUUID"
+                }
+            ],
+            "type": "uploadDocumentV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "VehicleUUID"
+                },
+                {
+                    "name": "CurrentContactTypeID"
+                },
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "EventGroupID"
+                },
+                {
+                    "name": "RequesterUUID"
+                },
+                {
+                    "name": "SuggestionID"
+                },
+                {
+                    "name": "DocumentTypeNameFormatted"
+                },
+                {
+                    "name": "VehicleSummary"
+                },
+                {
+                    "name": "AgentGroups"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DocumentTypeUUID"
+                },
+                {
+                    "name": "Files"
+                }
+            ],
+            "type": "uploadDocumentsV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PlaceID"
+                },
+                {
+                    "name": "Provider"
+                },
+                {
+                    "name": "AddressLine1"
+                },
+                {
+                    "name": "AddressLine2"
+                },
+                {
+                    "name": "FullAddress"
+                },
+                {
+                    "name": "EaterNotes"
+                },
+                {
+                    "name": "Label"
+                },
+                {
+                    "name": "AddressComponents"
+                },
+                {
+                    "name": "MobileFields"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "Latitude"
+                },
+                {
+                    "name": "Longitude"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "SelectedInteractionType"
+                }
+            ],
+            "type": "upsertDeliveryLocationWithInstructionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "DeviceUUID"
+                }
+            ],
+            "type": "verifyDeviceV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "EmailAddress"
+                },
+                {
+                    "name": "Otp"
+                }
+            ],
+            "type": "verifyEmailOtpV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "PolicyVersion"
+                },
+                {
+                    "name": "UserTextInput"
+                },
+                {
+                    "name": "ReasonForHandoff"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "PolicyID"
+                }
+            ],
+            "type": "virtualAgentPicassoHandoffV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "whatsappFareReviewV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "Tag"
+                }
+            ],
+            "type": "whatsappViaFlowV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "whitelistUserV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "TransactionCategory"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequesterUUID"
+                }
+            ],
+            "type": "writeOffAllArrearsForEntityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ReporterType"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "writeSafetyMetadataV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Reporter"
+                },
+                {
+                    "name": "ReportedAgainst"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "writeSafetyMetadataInvolvedPartiesV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "IsInvalid"
+                },
+                {
+                    "name": "InvalidityReason"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "writeSafetyMetadataContactValidityV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "OthersInvolved"
+                },
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "VendorName"
+                },
+                {
+                    "name": "VehicleUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ReferenceNumber"
+                },
+                {
+                    "name": "FlowType"
+                },
+                {
+                    "name": "TNCPeriod"
+                },
+                {
+                    "name": "Reporter"
+                },
+                {
+                    "name": "ReportLocation"
+                },
+                {
+                    "name": "ReportDateTime"
+                }
+            ],
+            "type": "submitClaimV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "CountryCode"
+                },
+                {
+                    "name": "MobileNumber"
+                },
+                {
+                    "name": "TerritoryID"
+                },
+                {
+                    "name": "FlowType"
+                },
+                {
+                    "name": "LeadType"
+                },
+                {
+                    "name": "UseCase"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addLeadV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ExpenseCode"
+                },
+                {
+                    "name": "ExpenseMemo"
+                },
+                {
+                    "name": "IsBusinessTrip"
+                },
+                {
+                    "name": "IsExpenseTrip"
+                },
+                {
+                    "name": "PolicyUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "PaymentProfileUUID"
+                },
+                {
+                    "name": "PaymentProfileOwnerUUID"
+                },
+                {
+                    "name": "ProfileUUID"
+                },
+                {
+                    "name": "ProfileType"
+                },
+                {
+                    "name": "OwnerUUID"
+                },
+                {
+                    "name": "OwnerType"
+                }
+            ],
+            "type": "switchPaymentProfileV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "waitTimeWaiverEnabledV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "removeWaitTimeWaiverEnabledV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "PreparationTime"
+                }
+            ],
+            "type": "updateRestaurantOrderPreparationTimeV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "ScoutSurface"
+                },
+                {
+                    "name": "CountryIso2"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "OverrideBotID"
+                },
+                {
+                    "name": "OverrideBotVersion"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ScoutSessionID"
+                },
+                {
+                    "name": "AgentRemoteIdentity"
+                }
+            ],
+            "type": "startScoutSessionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserInfoType"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "TripUUID"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "HasAudioAttached"
+                },
+                {
+                    "name": "SupportNodeID"
+                },
+                {
+                    "name": "Title"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "createBlissContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "JobID"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "CampaignID"
+                },
+                {
+                    "name": "ChatType"
+                },
+                {
+                    "name": "ContextID"
+                },
+                {
+                    "name": "ExtensionMetadata"
+                },
+                {
+                    "name": "CreateActionParams"
+                },
+                {
+                    "name": "PhoneNumber"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "RequesterID"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "OutboundInitiatorID"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "UserType"
+                },
+                {
+                    "name": "OutboundMessage"
+                },
+                {
+                    "name": "ChatClient"
+                }
+            ],
+            "type": "createOutboundChatContact"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ScoutSessionID"
+                },
+                {
+                    "name": "Reason"
+                }
+            ],
+            "type": "updateScoutSessionV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "CurrentContactTypeID"
+                },
+                {
+                    "name": "Transcription"
+                },
+                {
+                    "name": "CompleteSummary"
+                },
+                {
+                    "name": "ShouldUploadAttachments"
+                },
+                {
+                    "name": "ConversationID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "Summary"
+                }
+            ],
+            "type": "addGeneratedSummaryV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "RegionName"
+                },
+                {
+                    "name": "ProductGeofenceUUIDs"
+                },
+                {
+                    "name": "ShareCPFWithRestaurant"
+                },
+                {
+                    "name": "IsSingleUseItemsIncluded"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "CountryISO2Code"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "EaterUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "DraftOrderUUID"
+                },
+                {
+                    "name": "IssueType"
+                },
+                {
+                    "name": "Token"
+                }
+            ],
+            "type": "applyFROResolutionV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "CountryISO2"
+                }
+            ],
+            "type": "getAlternativeStoreForOrderV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "BotVersion"
+                },
+                {
+                    "name": "Params"
+                },
+                {
+                    "name": "Surface"
+                },
+                {
+                    "name": "UserTextInput"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactUUID"
+                },
+                {
+                    "name": "AgentUUID"
+                },
+                {
+                    "name": "BotUUID"
+                },
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "executeBotV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "U4bRoutingPath"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "setU4BRoutingPathV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "BlissTicketUUID"
+                },
+                {
+                    "name": "CityID"
+                },
+                {
+                    "name": "AccidentPeriod"
+                },
+                {
+                    "name": "Location"
+                },
+                {
+                    "name": "NumberOfRiders"
+                },
+                {
+                    "name": "NeedsMedicalAttention"
+                },
+                {
+                    "name": "WhoWasInjured"
+                },
+                {
+                    "name": "HasAmbulanceCome"
+                },
+                {
+                    "name": "DamagedProperty"
+                },
+                {
+                    "name": "OtherDetailsInSummary"
+                },
+                {
+                    "name": "ReportNumber"
+                },
+                {
+                    "name": "ReporterVehiclePhotos"
+                },
+                {
+                    "name": "OtherVehiclePhotos"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "FullName"
+                },
+                {
+                    "name": "AnyoneElseNeedsMedicalAttention"
+                },
+                {
+                    "name": "PDFFilename"
+                },
+                {
+                    "name": "AccidentTimeFormatted"
+                },
+                {
+                    "name": "CreatedAtTimeFormatted"
+                },
+                {
+                    "name": "DamagedVehicle"
+                },
+                {
+                    "name": "VehicleImageURLs"
+                },
+                {
+                    "name": "OtherVehicleImageURLs"
+                },
+                {
+                    "name": "OtherLicenseImageURLs"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "publishAccidentReportV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AccidentPeriod"
+                },
+                {
+                    "name": "Location"
+                },
+                {
+                    "name": "NumberOfRiders"
+                },
+                {
+                    "name": "NeedsMedicalAttention"
+                },
+                {
+                    "name": "WhoWasInjured"
+                },
+                {
+                    "name": "HasAmbulanceCome"
+                },
+                {
+                    "name": "DamagedProperty"
+                },
+                {
+                    "name": "OtherDetailsInSummary"
+                },
+                {
+                    "name": "ReportNumber"
+                },
+                {
+                    "name": "ReporterVehiclePhotos"
+                },
+                {
+                    "name": "OtherVehiclePhotos"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "FullName"
+                },
+                {
+                    "name": "AnyoneElseNeedsMedicalAttention"
+                },
+                {
+                    "name": "PDFFilename"
+                },
+                {
+                    "name": "AccidentTimeFormatted"
+                },
+                {
+                    "name": "CreatedAtTimeFormatted"
+                },
+                {
+                    "name": "DamagedVehicle"
+                },
+                {
+                    "name": "VehicleImageURLs"
+                },
+                {
+                    "name": "OtherVehicleImageURLs"
+                },
+                {
+                    "name": "OtherLicenseImageURLs"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "BlissTicketUUID"
+                }
+            ],
+            "type": "encryptAccidentReportingDataV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DependencyUUID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DependencyType"
+                },
+                {
+                    "name": "DependencyRefID"
+                },
+                {
+                    "name": "OperationType"
+                }
+            ],
+            "type": "updateExternalDependencyV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "Email"
+                }
+            ],
+            "type": "performUserMFAV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "AuthnCommsChannels"
+                }
+            ],
+            "type": "triggerUserAuthenticationV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "ShouldReplaceIfExistsFlag"
+                },
+                {
+                    "name": "TTL"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ReferenceUUID"
+                },
+                {
+                    "name": "User1UUID"
+                },
+                {
+                    "name": "User2UUID"
+                },
+                {
+                    "name": "User1PhoneNumber"
+                },
+                {
+                    "name": "User2PhoneNumber"
+                },
+                {
+                    "name": "UseCase"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "Capability"
+                },
+                {
+                    "name": "RateLimits"
+                }
+            ],
+            "type": "createKnownCallerAnonymizationMappingsV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "NoteMetadataStr"
+                }
+            ],
+            "type": "addMetadataToContact"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "AccountUpdateLinkType"
+                }
+            ],
+            "type": "sendAccountUpdateLinkV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "DriverUUID"
+                },
+                {
+                    "name": "BlissTicketUUID"
+                },
+                {
+                    "name": "TripUUID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "createJiraDriverCrashReportV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "requestExternalTicketV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "InternalNote"
+                },
+                {
+                    "name": "SkipStorefrontAttachmentReasonID"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "EscalationReason"
+                }
+            ],
+            "type": "escalateContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "AdditionalNote"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "UserUUID"
+                }
+            ],
+            "type": "enableInAppBugReporter"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "DataJSON"
+                }
+            ],
+            "type": "addPolicyMetadataV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Summary"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "addGeneratedSummaryV2"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "SearchStartTime"
+                },
+                {
+                    "name": "SearchEndTime"
+                },
+                {
+                    "name": "ExpirationTime"
+                },
+                {
+                    "name": "Tenancy"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ObjectUUID"
+                },
+                {
+                    "name": "Reason"
+                },
+                {
+                    "name": "RecordType"
+                }
+            ],
+            "type": "preserveRecordV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "BotVersion"
+                },
+                {
+                    "name": "CountryISO2"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "MarketPlace"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DelayMinutes"
+                },
+                {
+                    "name": "CurrencyCode"
+                },
+                {
+                    "name": "RefundAmount"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "WorkflowUUID"
+                },
+                {
+                    "name": "BotUUID"
+                }
+            ],
+            "type": "scheduleRefundV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "RegionID"
+                }
+            ],
+            "type": "cancelRideV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "JobUUID"
+                },
+                {
+                    "name": "UserUUID"
+                },
+                {
+                    "name": "RegionID"
+                }
+            ],
+            "type": "redispatchTripV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "InternalNote"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "DeEscalationReason"
+                }
+            ],
+            "type": "deEscalateContactV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [],
+            "type": "unblurContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "FirstName"
+                },
+                {
+                    "name": "LastName"
+                },
+                {
+                    "name": "PhoneNumber"
+                },
+                {
+                    "name": "Locale"
+                },
+                {
+                    "name": "StartLat"
+                },
+                {
+                    "name": "StartLong"
+                },
+                {
+                    "name": "EndLat"
+                },
+                {
+                    "name": "EndLong"
+                },
+                {
+                    "name": "ProductName"
+                },
+                {
+                    "name": "RegionID"
+                },
+                {
+                    "name": "Tenancy"
+                },
+                {
+                    "name": "ConsumerUUID"
+                }
+            ],
+            "requiredArguments": [],
+            "type": "createDelegateRideV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "OperatorID"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "claimContactV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "unclaimContactV1"
+        },
+        {
+            "optionalArguments": [
+                {
+                    "name": "Status"
+                }
+            ],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "ContactTypeID"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "updateContactTypeExternalV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "Status"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "updateContactStatusExternalV1"
+        },
+        {
+            "optionalArguments": [],
+            "requiredArguments": [
+                {
+                    "name": "ContactID"
+                },
+                {
+                    "name": "Message"
+                },
+                {
+                    "name": "InitiatorID"
+                },
+                {
+                    "name": "InitiatorType"
+                }
+            ],
+            "type": "addInboundMessageV1"
+        }
+    ],
+    "__responseHeaders__": {
+        "$rpc$-service": "bliss-resolver-staging",
+        "load": "q=0"
+    }
+}

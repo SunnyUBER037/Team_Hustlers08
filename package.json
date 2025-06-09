@@ -1,0 +1,43 @@
+{
+  "name": "action-generator",
+  "version": "1.0.0",
+  "description": "Interactive Action System - Generate customer service actions using atlas.json as source of truth",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "demo": "node examples/example.js",
+    "dev": "node src/index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "actions",
+    "customer-service",
+    "workflow",
+    "atlas",
+    "automation",
+    "interactive",
+    "support"
+  ],
+  "author": "Team08_Hustlers",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "examples/",
+    "docs/",
+    "atlas.json",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "directories": {
+    "lib": "lib",
+    "doc": "docs",
+    "example": "examples"
+  }
+} 

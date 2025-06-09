@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Generator Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .input-section {
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .examples {
+            margin: 20px 0;
+        }
+        .example-btn {
+            background-color: #28a745;
+            margin: 5px;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        .example-btn:hover {
+            background-color: #1e7e34;
+        }
+        .output {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Action Generator Demo</h1>
+        
+        <div class="status" id="status"></div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalActions">0</div>
+                <div>Total Actions</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="scenariosCount">4</div>
+                <div>Predefined Scenarios</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="generatedActions">0</div>
+                <div>Generated Actions</div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="requestInput" placeholder="Enter your request (e.g., 'food tampering', 'security issue', 'refund customer')" />
+            <button onclick="generateActions()">Generate Actions</button>
+        </div>
+
+        <div class="examples">
+            <strong>Try these examples:</strong><br>
+            <button class="example-btn" onclick="setRequest('food tampering incident')">Food Tampering</button>
+            <button class="example-btn" onclick="setRequest('account security issue')">Security Issue</button>
+            <button class="example-btn" onclick="setRequest('fare adjustment needed')">Fare Adjustment</button>
+            <button class="example-btn" onclick="setRequest('customer refund')">Customer Refund</button>
+            <button class="example-btn" onclick="setRequest('user')">Search: User</button>
+            <button class="example-btn" onclick="setRequest('refund')">Search: Refund</button>
+            <button class="example-btn" onclick="listAllActions()">List All Actions</button>
+        </div>
+
+        <div class="output" id="output">
+            <em>Enter a request above or click an example to see generated actions...</em>
+        </div>
+    </div>
+
+    <script src="../lib/actionGenerator-browser.js"></script>
+    <script>
+        let actionGenerator = null;
+        let atlasData = null;
+
+        // Sample atlas data for demo (truncated version)
+        const demoAtlasData = {
+            "result": [
+                {
+                    "optionalArguments": [
+                        {"name": "SendNotifyEmail"},
+                        {"name": "SendNotifySMS"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "UserUUID"}
+                    ],
+                    "type": "accountLockdownV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "Message"},
+                        {"name": "CurrentContactTypeID"},
+                        {"name": "AttachmentStr"}
+                    ],
+                    "requiredArguments": [],
+                    "type": "addMessageV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "Tenancy"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "UserUUID"},
+                        {"name": "Note"}
+                    ],
+                    "type": "addUserNoteV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "ClientMessage"},
+                        {"name": "DriverMessage"},
+                        {"name": "TransactionCategory"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "TripUUID"},
+                        {"name": "Fare"},
+                        {"name": "Reason"}
+                    ],
+                    "type": "adjustFareV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "TripUUID"},
+                        {"name": "TransactionCategory"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "UserUUID"},
+                        {"name": "WorkflowUUID"}
+                    ],
+                    "type": "applyResolutionV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "Tenancy"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "TripUUID"},
+                        {"name": "Note"}
+                    ],
+                    "type": "addTripNoteV1"
+                },
+                {
+                    "optionalArguments": [],
+                    "requiredArguments": [
+                        {"name": "RequesterpartyUUID"},
+                        {"name": "TripUUID"},
+                        {"name": "CounterpartyUUID"}
+                    ],
+                    "type": "createBlacklistEntryV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "Items"},
+                        {"name": "RefundStrategy"},
+                        {"name": "TransactionCategory"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "UserUUID"},
+                        {"name": "OrderUUID"},
+                        {"name": "OrderIssueType"}
+                    ],
+                    "type": "refundEaterV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "Message"},
+                        {"name": "ForceSendNotification"}
+                    ],
+                    "requiredArguments": [],
+                    "type": "sendNotificationV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "SkipArchivingContactWithAgent"}
+                    ],
+                    "requiredArguments": [
+                        {"name": "Status"}
+                    ],
+                    "type": "updateContactStatusV1"
+                },
+                {
+                    "optionalArguments": [
+                        {"name": "SuggestionID"},
+                        {"name": "AgentGroups"}
+                    ],
+                    "requiredArguments": [],
+                    "type": "updateContactTypeV1"
+                },
+                {
+                    "optionalArguments": [],
+                    "requiredArguments": [
+                        {"name": "EscalationReason"}
+                    ],
+                    "type": "updateContactTierV1"
+                }
+            ]
+        };
+
+        // Initialize the action generator
+        function initializeGenerator() {
+            try {
+                actionGenerator = new ActionGenerator(demoAtlasData);
+                updateStatus('Atlas data loaded successfully!', 'success');
+                document.getElementById('totalActions').textContent = demoAtlasData.result.length;
+                
+                // Try to load the full atlas.json if available
+                loadFullAtlasData();
+            } catch (error) {
+                updateStatus('Error initializing generator: ' + error.message, 'error');
+            }
+        }
+
+        // Try to load full atlas.json data
+        async function loadFullAtlasData() {
+            try {
+                const response = await fetch('../atlas.json');
+                if (response.ok) {
+                    const fullAtlasData = await response.json();
+                    actionGenerator.setAtlasData(fullAtlasData);
+                    document.getElementById('totalActions').textContent = fullAtlasData.result.length;
+                    updateStatus(`Full atlas data loaded! ${fullAtlasData.result.length} actions available.`, 'success');
+                }
+            } catch (error) {
+                console.log('Full atlas.json not available, using demo data');
+            }
+        }
+
+        function updateStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = `status ${type}`;
+        }
+
+        function setRequest(request) {
+            document.getElementById('requestInput').value = request;
+            generateActions();
+        }
+
+        function generateActions() {
+            const request = document.getElementById('requestInput').value.trim();
+            if (!request) {
+                updateStatus('Please enter a request', 'error');
+                return;
+            }
+
+            if (!actionGenerator) {
+                updateStatus('Generator not initialized', 'error');
+                return;
+            }
+
+            try {
+                const actions = actionGenerator.getActions(request);
+                const output = {
+                    request: request,
+                    timestamp: new Date().toISOString(),
+                    actionsCount: actions.length,
+                    actions: actions
+                };
+
+                document.getElementById('output').textContent = JSON.stringify(output, null, 2);
+                document.getElementById('generatedActions').textContent = actions.length;
+                
+                if (actions.length > 0) {
+                    updateStatus(`Generated ${actions.length} actions for: "${request}"`, 'success');
+                } else {
+                    updateStatus(`No actions found for: "${request}". Try: food tampering, security issue, fare adjustment, or refund`, 'error');
+                }
+            } catch (error) {
+                updateStatus('Error generating actions: ' + error.message, 'error');
+            }
+        }
+
+        function listAllActions() {
+            if (!actionGenerator) {
+                updateStatus('Generator not initialized', 'error');
+                return;
+            }
+
+            try {
+                const allActions = actionGenerator.listAllActions();
+                const output = {
+                    totalActions: allActions.length,
+                    timestamp: new Date().toISOString(),
+                    actions: allActions
+                };
+
+                document.getElementById('output').textContent = JSON.stringify(output, null, 2);
+                updateStatus(`Listed ${allActions.length} available actions`, 'success');
+            } catch (error) {
+                updateStatus('Error listing actions: ' + error.message, 'error');
+            }
+        }
+
+        // Handle enter key in input
+        document.getElementById('requestInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateActions();
+            }
+        });
+
+        // Initialize when page loads
+        window.onload = initializeGenerator;
+    </script>
+</body>
+</html> 
