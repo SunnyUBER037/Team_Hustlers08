@@ -39,10 +39,56 @@ body, html {
     max-width: none;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.clear-chat-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.clear-chat-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.clear-chat-btn:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.clear-chat-btn svg {
+    transition: all 0.2s ease;
+}
+
+.clear-chat-btn:hover svg {
+    stroke: #ff6b6b;
+}
+
 .logo {
     display: flex;
     align-items: center;
     gap: 16px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 10px 25px;
+    border-radius: 20px !important;
 }
 
 .logo-icon {
@@ -489,8 +535,6 @@ body, html {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.8);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 24px 32px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

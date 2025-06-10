@@ -66,15 +66,16 @@ class AtlasChatbotServer {
         // Chat API endpoint
         this.app.post('/api/chat', async (req, res) => {
             try {
-                const { message } = req.body;
+                const { message, conversationHistory = [] } = req.body;
                 console.log('\n🔍 [API] Received user query:', message);
+                console.log('📚 [API] Conversation history length:', conversationHistory.length);
                 
                 if (!message || message.trim() === '') {
                     console.log('❌ [API] Empty message received');
                     return res.status(400).json({ error: 'Message is required' });
                 }
 
-                const response = await this.processQuery(message);
+                const response = await this.processQuery(message, conversationHistory);
                 console.log('\n🤖 [API] Generated response:', response);
                 console.log('\n📤 [API] Sending response to frontend...');
                 
@@ -275,7 +276,7 @@ Be helpful, accurate, and always include practical examples. Focus on being dire
         return relevantActions.slice(0, this.maxRelevantActions);
     }
 
-    async processQuery(userQuery) {
+    async processQuery(userQuery, conversationHistory = []) {
         console.log(`🤔 Processing query: ${userQuery.substring(0, 50)}${userQuery.length > 50 ? '...' : ''}`);
         
         // Find relevant actions
@@ -285,11 +286,19 @@ Be helpful, accurate, and always include practical examples. Focus on being dire
         // Create system prompt
         const systemPrompt = this.createSystemPrompt();
         
-        // Create messages for the API
+        // Create messages for the API, including conversation history
         const messages = [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: userQuery }
+            { role: "system", content: systemPrompt }
         ];
+        
+        // Add conversation history (limit to last 10 exchanges to avoid token limits)
+        const recentHistory = conversationHistory.slice(-10);
+        messages.push(...recentHistory);
+        
+        // Add current user query
+        messages.push({ role: "user", content: userQuery });
+        
+        console.log(`💬 [API] Total messages in context: ${messages.length} (including ${recentHistory.length} history messages)`);
 
         try {
             console.log('🚀 Calling OpenRouter API...');

@@ -7,10 +7,16 @@ class ChatBot {
         this.exampleButtons = document.getElementById('example-buttons');
         this.messageCount = 0;
         this.codeBlockCounter = 0;
+        
+        // Add conversation history to maintain context
+        this.conversationHistory = [];
+        this.maxHistoryLength = 20; // Keep last 20 messages (10 exchanges)
 
         this.initializeEventListeners();
         // Generate examples immediately when the chatbot loads
         this.generateRandomExamples();
+        
+        console.log('✅ [Frontend] ChatBot initialized with conversation history support');
     }
 
     generateRandomExamples() {
@@ -126,6 +132,12 @@ class ChatBot {
             this.userInput.style.height = Math.min(this.userInput.scrollHeight, 120) + 'px';
         });
 
+        // Clear chat button
+        const clearChatBtn = document.getElementById('clear-chat-btn');
+        if (clearChatBtn) {
+            clearChatBtn.addEventListener('click', () => this.clearChat());
+        }
+
         // Example query buttons - Fixed click handler
         document.querySelectorAll('.example-query').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -145,13 +157,17 @@ class ChatBot {
         if (!message) return;
 
         console.log('📤 [Frontend] Sending message:', message);
+        console.log('📚 [Frontend] Current conversation history length:', this.conversationHistory.length);
 
         // Hide welcome section after first message
         if (this.messageCount === 0) {
             this.welcomeSection.style.display = 'none';
         }
 
-        // Add user message
+        // Add user message to conversation history
+        this.addToConversationHistory('user', message);
+
+        // Add user message to UI
         this.addMessage(message, 'user');
         this.userInput.value = '';
         this.userInput.style.height = 'auto';
@@ -161,14 +177,17 @@ class ChatBot {
         this.showLoading();
 
         try {
-            console.log('🌐 [Frontend] Making API request to /api/chat');
-            // Send to backend
+            console.log('🌐 [Frontend] Making API request to /api/chat with conversation history');
+            // Send to backend with conversation history
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ 
+                    message,
+                    conversationHistory: this.conversationHistory.slice(0, -1) // Exclude the current message we just added
+                })
             });
 
             console.log('📡 [Frontend] API response status:', response.status);
@@ -184,14 +203,19 @@ class ChatBot {
             // Hide loading
             this.hideLoading();
             
-            // Add bot response
+            // Add assistant response to conversation history
+            this.addToConversationHistory('assistant', data.response);
+            
+            // Add bot response to UI
             this.addMessage(data.response, 'assistant');
             console.log('✅ [Frontend] Bot message added to chat');
             
         } catch (error) {
             console.error('❌ [Frontend] Error:', error);
             this.hideLoading();
-            this.addMessage('Sorry, I encountered an error while processing your request. Please try again or check if the server is running.', 'assistant');
+            const errorMessage = 'Sorry, I encountered an error while processing your request. Please try again or check if the server is running.';
+            this.addToConversationHistory('assistant', errorMessage);
+            this.addMessage(errorMessage, 'assistant');
         }
 
         this.sendButton.disabled = false;
@@ -397,7 +421,6 @@ class ChatBot {
         if (inlineCodeElements.length > 0) {
             console.log(`📝 [Frontend] Found ${inlineCodeElements.length} inline code elements`);
             inlineCodeElements.forEach(element => {
-                element.style.backgroundColor = '#f4f4f4';
                 element.style.padding = '2px 4px';
                 element.style.borderRadius = '3px';
                 element.style.fontFamily = 'Monaco, Consolas, "Courier New", monospace';
@@ -460,6 +483,51 @@ class ChatBot {
     regenerateExamples() {
         this.generateRandomExamples();
         console.log('🔄 [Frontend] Generated new example queries');
+    }
+
+    // Add method to manage conversation history
+    addToConversationHistory(role, content) {
+        this.conversationHistory.push({
+            role: role,
+            content: content
+        });
+        
+        // Keep only the most recent messages to avoid token limits
+        if (this.conversationHistory.length > this.maxHistoryLength) {
+            this.conversationHistory = this.conversationHistory.slice(-this.maxHistoryLength);
+            console.log('🔄 [Frontend] Trimmed conversation history to', this.maxHistoryLength, 'messages');
+        }
+        
+        console.log('📝 [Frontend] Added to conversation history:', role, '- Total messages:', this.conversationHistory.length);
+    }
+
+    // Add method to clear conversation history (useful for starting fresh)
+    clearConversationHistory() {
+        this.conversationHistory = [];
+        console.log('🗑️ [Frontend] Conversation history cleared');
+    }
+
+    // Clear entire chat and start fresh
+    clearChat() {
+        // Clear conversation history
+        this.clearConversationHistory();
+        
+        // Clear chat messages from UI
+        this.chatMessages.innerHTML = '';
+        
+        // Reset message count
+        this.messageCount = 0;
+        
+        // Show welcome section again
+        this.welcomeSection.style.display = 'block';
+        
+        // Generate new random examples
+        this.generateRandomExamples();
+        
+        // Scroll to top
+        this.scrollToBottom();
+        
+        console.log('🗑️ [Frontend] Chat cleared and reset to initial state');
     }
 }
 
