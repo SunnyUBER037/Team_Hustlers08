@@ -25,11 +25,14 @@ class AtlasChatbotServer {
         this.baseURL = process.env.OPENROUTER_BASE_URL || 'https://openrouter.ai/api/v1/chat/completions';
         this.model = process.env.OPENROUTER_MODEL || 'deepseek/deepseek-r1-0528:free';
         this.temperature = parseFloat(process.env.OPENROUTER_TEMPERATURE) || 0.7;
-        this.maxTokens = parseInt(process.env.OPENROUTER_MAX_TOKENS) || 1000;
+        this.maxTokens = parseInt(process.env.OPENROUTER_MAX_TOKENS) || 500; // Reduced for testing continuation
         this.siteUrl = process.env.SITE_URL || 'http://localhost:3000';
         this.siteName = process.env.SITE_NAME || 'Atlas Chatbot';
         this.maxRelevantActions = parseInt(process.env.MAX_RELEVANT_ACTIONS) || 10;
         this.contextActionLimit = parseInt(process.env.CONTEXT_ACTION_LIMIT) || 20;
+        
+        // Add continuation state management
+        this.continuationStates = new Map(); // Store continuation contexts by session ID
         
         this.atlasData = null;
         this.loadAtlasData();
@@ -66,23 +69,38 @@ class AtlasChatbotServer {
         // Chat API endpoint
         this.app.post('/api/chat', async (req, res) => {
             try {
-                const { message, conversationHistory = [] } = req.body;
+                const { message, conversationHistory = [], sessionId } = req.body;
                 console.log('\n🔍 [API] Received user query:', message);
                 console.log('📚 [API] Conversation history length:', conversationHistory.length);
+                console.log('🔑 [API] Session ID:', sessionId || 'none');
                 
                 if (!message || message.trim() === '') {
                     console.log('❌ [API] Empty message received');
                     return res.status(400).json({ error: 'Message is required' });
                 }
 
-                const response = await this.processQuery(message, conversationHistory);
-                console.log('\n🤖 [API] Generated response:', response);
+                // Check if this is a continuation request
+                const isContinuation = message.toLowerCase().includes('continue') || message.toLowerCase().includes('more');
+                let continuationContext = null;
+                
+                if (isContinuation && sessionId && this.continuationStates.has(sessionId)) {
+                    continuationContext = this.continuationStates.get(sessionId);
+                    console.log('🔄 [API] Continuation request detected');
+                }
+
+                const result = await this.processQuery(message, conversationHistory, continuationContext, sessionId);
+                console.log('\n🤖 [API] Generated response length:', result.response.length);
                 console.log('\n📤 [API] Sending response to frontend...');
                 
-                res.json({ response });
+                res.json(result);
             } catch (error) {
                 console.error('❌ [API] Error processing chat request:', error);
-                res.status(500).json({ error: 'Internal server error' });
+                res.status(500).json({ 
+                    response: 'Sorry, I encountered an error while processing your request. Please try again.',
+                    hasMore: false,
+                    wasCutOff: false,
+                    finishReason: 'error'
+                });
             }
         });
 
@@ -143,48 +161,61 @@ class AtlasChatbotServer {
                 throw new Error('Invalid response structure from API - missing choices or message');
             }
 
-            const content = data.choices[0].message.content;
+            const choice = data.choices[0];
+            const content = choice.message.content;
+            const finishReason = choice.finish_reason;
+            const wasCutOff = finishReason === 'length';
+            
             console.log('✅ [API] Successfully extracted content:', content ? `${content.substring(0, 100)}...` : 'Empty content');
+            console.log('🔚 [API] Finish reason:', finishReason);
+            if (wasCutOff) {
+                console.log('⚠️ [API] Response was cut off due to length limit');
+            }
             
             // Check if content is empty or null
             if (!content || content.trim() === '') {
                 console.warn('⚠️ [API] Received empty content from API');
-                console.log('🔍 [API] Full message object:', JSON.stringify(data.choices[0].message, null, 2));
+                console.log('🔍 [API] Full message object:', JSON.stringify(choice.message, null, 2));
                 
                 // Try to extract from reasoning field if available (deepseek-r1 uses this)
-                if (data.choices[0].message.reasoning) {
+                if (choice.message.reasoning) {
                     console.log('🔄 [API] Using reasoning field as fallback');
-                    const reasoningContent = data.choices[0].message.reasoning;
+                    const reasoningContent = choice.message.reasoning;
                     
                     // For deepseek-r1, sometimes the actual response is buried in the reasoning
                     // Try to extract a more useful response from reasoning
                     if (reasoningContent.includes('```json') || reasoningContent.includes('Action:')) {
-                        return reasoningContent;
+                        return { content: reasoningContent, wasCutOff: false, finishReason };
                     } else {
                         // Generate a helpful response based on reasoning content
-                        return this.generateResponseFromReasoning(reasoningContent);
+                        const generatedContent = this.generateResponseFromReasoning(reasoningContent);
+                        return { content: generatedContent, wasCutOff: false, finishReason };
                     }
                 }
                 
                 // Return a helpful message if content is truly empty
-                return 'I apologize, but I received an empty response from the AI service. Please try rephrasing your question or try again.';
+                const fallbackContent = 'I apologize, but I received an empty response from the AI service. Please try rephrasing your question or try again.';
+                return { content: fallbackContent, wasCutOff: false, finishReason };
             }
             
-            return content;
+            return { content, wasCutOff, finishReason };
         } catch (error) {
             console.error('❌ Error calling OpenRouter API:', error.message);
             console.error('❌ Full error:', error);
             
             // Return a more helpful error message based on the type of error
+            let errorContent;
             if (error.message.includes('unable to get local issuer certificate') || error.message.includes('UNABLE_TO_GET_ISSUER_CERT_LOCALLY')) {
-                return 'Sorry, I encountered a network security error. This might be a temporary issue. Please try again in a moment.';
+                errorContent = 'Sorry, I encountered a network security error. This might be a temporary issue. Please try again in a moment.';
             } else if (error.message.includes('OpenRouter API Error')) {
-                return 'Sorry, the AI service is experiencing technical difficulties. Please try again later.';
+                errorContent = 'Sorry, the AI service is experiencing technical difficulties. Please try again later.';
             } else if (error.message.includes('Invalid response structure')) {
-                return 'Sorry, I received an unexpected response from the AI service. Please try again.';
+                errorContent = 'Sorry, I received an unexpected response from the AI service. Please try again.';
             } else {
-                return 'Sorry, I encountered an error while processing your request. Please check your API key and try again.';
+                errorContent = 'Sorry, I encountered an error while processing your request. Please check your API key and try again.';
             }
+            
+            return { content: errorContent, wasCutOff: false, finishReason: 'error' };
         }
     }
 
@@ -222,69 +253,136 @@ For specific argument details, please refer to your atlas.json file or ask about
 Please specify which action you'd like to know more about, or describe what you're trying to accomplish.`;
     }
 
-    createSystemPrompt() {
-        const actionTypes = this.atlasData.result.map(action => action.type).slice(0, this.contextActionLimit);
+    findRelevantActions(query) {
+        console.log(`🔍 [Search] Providing comprehensive action context for AI analysis`);
         
-        return `You are an AI assistant that helps users understand and work with API actions from an atlas.json file. 
+        const allActions = this.atlasData.result;
+        const queryLower = query.toLowerCase();
+        
+        // Start with a diverse set of commonly used actions
+        const coreActions = [
+            'addClientCreditsV2', 'addMessageV1', 'addLeadV1', 'addContactUserV1', 
+            'accountLockdownV1', 'addUserNoteV1', 'addSystemNoteV1', 'addTripNoteV1',
+            'removeClientCreditsV1', 'performUserActionV1', 'createCaseV1', 'applyResolutionV2',
+            'adjustFareV2', 'banClientV1', 'createAssociatedContactV1'
+        ];
+        
+        // Find actions that contain words from the user's query
+        const queryWords = queryLower.split(/\s+/).filter(word => word.length > 2);
+        const queryMatchedActions = allActions.filter(action => {
+            const actionType = action.type.toLowerCase();
+            return queryWords.some(word => actionType.includes(word));
+        });
+        
+        // Combine core actions with query-matched actions
+        const selectedActionTypes = new Set([...coreActions]);
+        queryMatchedActions.forEach(action => selectedActionTypes.add(action.type));
+        
+        // Get the actual action objects
+        const selectedActions = Array.from(selectedActionTypes)
+            .map(type => allActions.find(action => action.type === type))
+            .filter(Boolean);
+        
+        // If we have too many, prioritize query matches + core actions
+        if (selectedActions.length > 60) {
+            const priorityActions = [
+                ...queryMatchedActions.slice(0, 30),
+                ...allActions.filter(action => coreActions.includes(action.type))
+            ];
+            const uniqueActions = Array.from(
+                new Map(priorityActions.map(action => [action.type, action])).values()
+            );
+            console.log(`📊 [Search] Providing ${uniqueActions.length} priority actions (query matches + core actions)`);
+            return uniqueActions.slice(0, 60);
+        }
+        
+        // Fill remaining slots with random diverse actions if needed
+        if (selectedActions.length < 50) {
+            const remainingActions = allActions.filter(action => !selectedActionTypes.has(action.type));
+            const additionalCount = Math.min(50 - selectedActions.length, remainingActions.length);
+            const randomActions = remainingActions
+                .sort(() => 0.5 - Math.random())
+                .slice(0, additionalCount);
+            selectedActions.push(...randomActions);
+        }
+        
+        console.log(`📊 [Search] Providing ${selectedActions.length} actions for AI analysis`);
+        console.log(`🎯 [Search] Includes ${queryMatchedActions.length} query-matched actions and ${coreActions.length} core actions`);
+        
+        return selectedActions;
+    }
 
-The atlas.json contains ${this.atlasData.result.length} different action types, each with required and optional arguments.
+    createSystemPrompt(availableActions = []) {
+        return `You are an intelligent API assistant that helps users understand and work with actions from an atlas.json file containing ${this.atlasData.result.length} different API actions.
 
-Here are some example action types available:
-${actionTypes.join(', ')}
+AVAILABLE ACTIONS FOR THIS REQUEST:
+${JSON.stringify(availableActions, null, 2)}
 
-Each action has:
-- type: The name/identifier of the action
-- requiredArguments: Array of arguments that must be provided
-- optionalArguments: Array of arguments that can be optionally provided
+YOUR CAPABILITIES:
+- Analyze user queries to understand their intent and needs
+- Intelligently select the most relevant actions from the available set
+- Adapt your response format based on what the user is asking for
+- Provide practical, actionable information with real examples
 
-CRITICAL INSTRUCTIONS - You MUST follow this format exactly:
+RESPONSE GUIDELINES:
 
-1. Always start your response with a clear heading using ### 
-2. Always provide a complete JSON example using markdown code blocks
-3. Be concise but comprehensive
-4. Use this exact structure:
+**For LIST/OVERVIEW requests**: Provide concise bullet points or numbered lists
+**For SPECIFIC action questions**: Give detailed explanations with full JSON examples  
+**For HOW-TO questions**: Focus on the most relevant actions with step-by-step guidance
+**For GENERAL questions**: Provide helpful overviews and suggest related actions
 
-### Action: [actionName]
-**Purpose**: [Brief description]
-**Required Arguments**: [List them clearly]
-**Optional Arguments**: [List common ones]
+RESPONSE FORMATS:
+
+For lists, use:
+• **actionName** - Brief description of what it does
+
+For detailed actions, use:
+### Action: actionName
+**Purpose**: Clear description
+**Required Arguments**: List with brief explanations
+**Optional Arguments**: Most useful optional arguments
 **Example Usage**:
 \`\`\`json
 {
   "type": "actionName",
   "arguments": {
-    "requiredArg1": "example_value",
-    "requiredArg2": "example_value",
-    "optionalArg1": "example_value"
+    "requiredArg": "realistic_example_value",
+    "optionalArg": "helpful_example"
   }
 }
 \`\`\`
 
-When users ask about actions, provide helpful information about what the action does, required arguments, optional arguments, and always include a working JSON example.
+IMPORTANT:
+- Understand the user's actual intent (are they asking for a list, specific help, or exploration?)
+- Select only the most relevant actions - don't try to cover everything
+- Provide realistic, practical examples that users can actually use
+- Be conversational and helpful, not robotic
+- If the user asks for "top X" actions, interpret this contextually (most useful, most common, etc.)
 
-Be helpful, accurate, and always include practical examples. Focus on being direct and useful.`;
+Analyze the user's query and respond appropriately with the most helpful information.`;
     }
 
-    findRelevantActions(query) {
-        const queryLower = query.toLowerCase();
-        const relevantActions = this.atlasData.result.filter(action => {
-            return action.type.toLowerCase().includes(queryLower) ||
-                   action.requiredArguments.some(arg => arg.name.toLowerCase().includes(queryLower)) ||
-                   action.optionalArguments.some(arg => arg.name.toLowerCase().includes(queryLower));
-        });
-
-        return relevantActions.slice(0, this.maxRelevantActions);
-    }
-
-    async processQuery(userQuery, conversationHistory = []) {
+    async processQuery(userQuery, conversationHistory = [], continuationContext = null, sessionId = null) {
         console.log(`🤔 Processing query: ${userQuery.substring(0, 50)}${userQuery.length > 50 ? '...' : ''}`);
         
-        // Find relevant actions
-        const relevantActions = this.findRelevantActions(userQuery);
-        console.log(`📊 Found ${relevantActions.length} relevant actions`);
+        let systemPrompt, availableActions;
         
-        // Create system prompt
-        const systemPrompt = this.createSystemPrompt();
+        if (continuationContext) {
+            // This is a continuation request
+            console.log('🔄 [Continuation] Resuming from previous context');
+            systemPrompt = continuationContext.systemPrompt;
+            availableActions = continuationContext.availableActions;
+            
+            // Modify the user query to indicate continuation
+            userQuery = `Please continue from where you left off. The user said: "${userQuery}". Continue providing the detailed explanation you were in the middle of.`;
+        } else {
+            // Get a diverse set of actions for the AI to analyze
+            availableActions = this.findRelevantActions(userQuery);
+            console.log(`📊 Providing ${availableActions.length} actions for AI analysis`);
+            
+            // Create system prompt with available actions for AI to intelligently select from
+            systemPrompt = this.createSystemPrompt(availableActions);
+        }
         
         // Create messages for the API, including conversation history
         const messages = [
@@ -302,13 +400,62 @@ Be helpful, accurate, and always include practical examples. Focus on being dire
 
         try {
             console.log('🚀 Calling OpenRouter API...');
-            const response = await this.callOpenRouterAPI(messages);
+            const apiResult = await this.callOpenRouterAPI(messages);
+            const { content, wasCutOff, finishReason } = apiResult;
+            
             console.log(`✅ Generated response for query: ${userQuery.substring(0, 50)}${userQuery.length > 50 ? '...' : ''}`);
-            console.log('📝 Response length:', response.length, 'characters');
-            return response;
+            console.log('📝 Response length:', content.length, 'characters');
+            
+            let finalResponse = content;
+            let hasMore = false;
+            
+            // Handle cut-off responses
+            if (wasCutOff && sessionId) {
+                console.log('✂️ [Continuation] Response was cut off, setting up continuation');
+                hasMore = true;
+                
+                // Store continuation context
+                this.continuationStates.set(sessionId, {
+                    systemPrompt: systemPrompt,
+                    availableActions: availableActions,
+                    originalQuery: continuationContext ? continuationContext.originalQuery : userQuery,
+                    timestamp: Date.now()
+                });
+                
+                // Add continuation notice to response
+                finalResponse += '\n\n---\n**⏭️ Response was cut off. Type "continue" or "more" to see the rest.**';
+                
+                // Clean up old continuation states (older than 1 hour)
+                this.cleanupOldContinuationStates();
+            } else if (sessionId && this.continuationStates.has(sessionId)) {
+                // Response completed, clean up continuation state
+                this.continuationStates.delete(sessionId);
+            }
+            
+            return {
+                response: finalResponse,
+                hasMore: hasMore,
+                wasCutOff: wasCutOff,
+                finishReason: finishReason
+            };
         } catch (error) {
             console.error('❌ Error calling OpenRouter API:', error);
-            return "I apologize, but I'm having trouble connecting to the AI service right now. Please try again later.";
+            return {
+                response: "I apologize, but I'm having trouble connecting to the AI service right now. Please try again later.",
+                hasMore: false,
+                wasCutOff: false,
+                finishReason: 'error'
+            };
+        }
+    }
+
+    cleanupOldContinuationStates() {
+        const oneHourAgo = Date.now() - (60 * 60 * 1000);
+        for (const [sessionId, state] of this.continuationStates.entries()) {
+            if (state.timestamp < oneHourAgo) {
+                console.log(`🧹 [Cleanup] Removing old continuation state for session: ${sessionId}`);
+                this.continuationStates.delete(sessionId);
+            }
         }
     }
 

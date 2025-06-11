@@ -12,11 +12,22 @@ class ChatBot {
         this.conversationHistory = [];
         this.maxHistoryLength = 20; // Keep last 20 messages (10 exchanges)
 
+        // Generate unique session ID for continuation support
+        this.sessionId = this.generateSessionId();
+        
+        // Track if we have more content available
+        this.hasMoreContent = false;
+
         this.initializeEventListeners();
         // Generate examples immediately when the chatbot loads
         this.generateRandomExamples();
         
         console.log('✅ [Frontend] ChatBot initialized with conversation history support');
+        console.log('🔑 [Frontend] Session ID:', this.sessionId);
+    }
+
+    generateSessionId() {
+        return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
     generateRandomExamples() {
@@ -178,7 +189,7 @@ class ChatBot {
 
         try {
             console.log('🌐 [Frontend] Making API request to /api/chat with conversation history');
-            // Send to backend with conversation history
+            // Send to backend with conversation history and session ID
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
@@ -186,7 +197,8 @@ class ChatBot {
                 },
                 body: JSON.stringify({ 
                     message,
-                    conversationHistory: this.conversationHistory.slice(0, -1) // Exclude the current message we just added
+                    conversationHistory: this.conversationHistory.slice(0, -1), // Exclude the current message we just added
+                    sessionId: this.sessionId
                 })
             });
 
@@ -198,24 +210,34 @@ class ChatBot {
 
             const data = await response.json();
             console.log('📥 [Frontend] Received API data:', data);
-            console.log('🤖 [Frontend] Bot response:', data.response);
+            console.log('🤖 [Frontend] Bot response length:', data.response ? data.response.length : 0);
+            console.log('🔄 [Frontend] Has more content:', data.hasMore || false);
+            console.log('✂️ [Frontend] Was cut off:', data.wasCutOff || false);
             
             // Hide loading
             this.hideLoading();
             
+            // Update continuation state
+            this.hasMoreContent = data.hasMore || false;
+            
             // Add assistant response to conversation history
             this.addToConversationHistory('assistant', data.response);
             
-            // Add bot response to UI
-            this.addMessage(data.response, 'assistant');
+            // Add bot response to UI with continuation indicator
+            this.addMessage(data.response, 'assistant', data.hasMore);
             console.log('✅ [Frontend] Bot message added to chat');
+            
+            // Show continuation button if needed
+            if (data.hasMore) {
+                this.addContinuationButton();
+            }
             
         } catch (error) {
             console.error('❌ [Frontend] Error:', error);
             this.hideLoading();
             const errorMessage = 'Sorry, I encountered an error while processing your request. Please try again or check if the server is running.';
             this.addToConversationHistory('assistant', errorMessage);
-            this.addMessage(errorMessage, 'assistant');
+            this.addMessage(errorMessage, 'assistant', false);
         }
 
         this.sendButton.disabled = false;
@@ -229,9 +251,10 @@ class ChatBot {
         }
     }
 
-    addMessage(content, sender) {
+    addMessage(content, sender, hasMore = false) {
         console.log(`💬 [Frontend] Adding ${sender} message, content length:`, content.length);
         console.log(`📄 [Frontend] Message content preview:`, content.substring(0, 200) + (content.length > 200 ? '...' : ''));
+        console.log(`🔄 [Frontend] Has more content:`, hasMore);
         
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${sender}`;
@@ -268,6 +291,42 @@ class ChatBot {
         }, 100);
         
         console.log(`✅ [Frontend] ${sender} message added to chat successfully`);
+    }
+
+    addContinuationButton() {
+        // Remove any existing continuation buttons
+        const existingButtons = document.querySelectorAll('.continuation-button-container');
+        existingButtons.forEach(btn => btn.remove());
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'continuation-button-container';
+        buttonContainer.innerHTML = `
+            <button class="continuation-button" onclick="chatbot.continueConversation()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+                Continue Reading
+            </button>
+        `;
+        
+        this.chatMessages.appendChild(buttonContainer);
+        this.scrollToBottom();
+        
+        console.log('🔄 [Frontend] Added continuation button');
+    }
+
+    async continueConversation() {
+        console.log('▶️ [Frontend] Continue button clicked');
+        
+        // Remove the continuation button
+        const buttonContainer = document.querySelector('.continuation-button-container');
+        if (buttonContainer) {
+            buttonContainer.remove();
+        }
+        
+        // Send a continue message
+        this.userInput.value = 'continue';
+        await this.sendMessage();
     }
 
     processMessageContent(content) {
@@ -518,6 +577,12 @@ class ChatBot {
         // Reset message count
         this.messageCount = 0;
         
+        // Reset continuation state
+        this.hasMoreContent = false;
+        
+        // Generate new session ID
+        this.sessionId = this.generateSessionId();
+        
         // Show welcome section again
         this.welcomeSection.style.display = 'block';
         
@@ -528,13 +593,18 @@ class ChatBot {
         this.scrollToBottom();
         
         console.log('🗑️ [Frontend] Chat cleared and reset to initial state');
+        console.log('🔑 [Frontend] New session ID:', this.sessionId);
     }
 }
+
+// Make chatbot globally accessible for continuation button
+let chatbot;
 
 // Initialize chatbot when page loads
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 [Frontend] Initializing Atlas Chatbot...');
-    window.chatbot = new ChatBot();
+    chatbot = new ChatBot();
+    window.chatbot = chatbot;
     console.log('✅ [Frontend] Atlas Chatbot initialized successfully');
 });
 
