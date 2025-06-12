@@ -7,6 +7,9 @@
     "start": "node src/index.js",
     "demo": "node examples/example.js",
     "dev": "node src/index.js",
+    "chatbot": "node src/app.js",
+    "server": "node src/server.js",
+    "web": "node src/server.js",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "keywords": [
@@ -16,12 +19,19 @@
     "atlas",
     "automation",
     "interactive",
-    "support"
+    "support",
+    "chatbot",
+    "ai"
   ],
   "author": "Team08_Hustlers",
   "license": "MIT",
   "engines": {
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
   },
   "files": [
     "src/",
